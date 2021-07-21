@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router,Switch,Route,} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginSeul from './pages/kimdaseul/Login/Login.js';
 import MainSeul from './pages/kimdaseul/Main/Main.js';
 import LoginAh from './pages/baeyoonah/Login/Login';
@@ -17,7 +17,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-        <Route exact path="/" component={Nav} />
+          <Route exact path="/" component={Nav} />
           <Route exact path="/LoginSeul" component={LoginSeul} />
           <Route exact path="/MainSeul" component={MainSeul} />
           <Route exact path="/LoginAh" component={LoginAh} />
@@ -30,7 +30,7 @@ class Routes extends React.Component {
           <Route exact path="/MainSung" component={MainSung} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
