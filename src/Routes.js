@@ -8,8 +8,8 @@ import LoginHwan from './pages/parktaehwan/Login/Login.js';
 import MainHwan from './pages/parktaehwan/Main/Main.js';
 import LoginHun from './pages/kimjihun/Login/Login.js';
 import MainHun from './pages/kimjihun/Main/Main.js';
-import LoginSung from './pages/kimmyungsung/Login/Login.js';
-import MainSung from './pages/kimmyungsung/Main/Main.js';
+import LoginSung from './pages/kimmyungsung/Login/Login';
+import MainSung from './pages/kimmyungsung/Main/Main';
 import Nav from './components/Nav/Nav.js';
 
 class Routes extends React.Component {
