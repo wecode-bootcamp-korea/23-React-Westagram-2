@@ -1,13 +1,13 @@
 import React from 'react';
 
-class LoginSeul extends React.Component {
+class MainHun extends React.Component {
   render() {
     return (
       <div>
-        <p>다슬</p>
+        <p>명성</p>
       </div>
     );
   }
 }
 
-export default LoginSeul;
+export default MainHun;
