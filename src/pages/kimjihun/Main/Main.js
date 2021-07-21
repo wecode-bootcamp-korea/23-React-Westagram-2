@@ -1,6 +1,6 @@
 import React from 'react';
 
-class LoginSung extends React.Component {
+class MainHun extends React.Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class LoginSung extends React.Component {
     }
 }
 
-export default LoginSung;
+export default MainHun;
