@@ -2,6 +2,10 @@ import React from 'react';
 import './Login.scss';
 
 class LoginHwan extends React.Component {
+  goToMain = () => {
+    this.props.history.push('/MainHwan');
+  };
+
   render() {
     return (
       <body className="loginBody">
@@ -24,7 +28,7 @@ class LoginHwan extends React.Component {
                 />
               </div>
               <div className="btn">
-                <button onclick={this.goToMain} className="loginBtn">
+                <button onClick={this.goToMain} className="loginBtn">
                   로그인
                 </button>
               </div>
