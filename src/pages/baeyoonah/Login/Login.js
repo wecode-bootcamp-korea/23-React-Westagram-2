@@ -31,7 +31,7 @@ class LoginAh extends React.Component {
               로그인
             </button>
             <div>
-              <a href="#">비밀번호를 잊으셨나요?</a>
+              <a href="google.com">비밀번호를 잊으셨나요?</a>
             </div>
           </div>
         </div>
