@@ -5,9 +5,9 @@ import Login from './withRouter';
 class LoginSung extends React.Component {
   render() {
     return (
-      <div className="LoginSung">
+      <form className="LoginSung">
         <header className="logo">
-          <a href="login.html">Westagram</a>
+          <a href="LoginSung">Westagram</a>
         </header>
         <input
           type="text"
@@ -19,7 +19,7 @@ class LoginSung extends React.Component {
         <a href="/#" className="forgetPassword">
           비밀번호를 잊으셨나요?
         </a>
-      </div>
+      </form>
     );
   }
 }

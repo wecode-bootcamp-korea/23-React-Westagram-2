@@ -1,25 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@mixin sort($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin verticalAlign($display, $direction) {
+  display: $display;
+  flex-direction: $direction;
+}
+@mixin imgSize($width, $height, $margin, $cursor) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+  cursor: $cursor;
+}
+@mixin font($size, $weight, $color, $cursor) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  cursor: $cursor;
+}
+@mixin border($border, $radius) {
+  border: $border;
+  border-radius: $radius;
+}
+
 a {
   color: black;
 }
 
 .MainSung {
   nav {
+    @include sort(flex, space-between, center);
     height: 54px;
     width: 975px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 0 auto;
     .homepage {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include sort(flex, space-between, center);
       img {
-        width: 22px;
-        height: 22px;
-        margin-left: 20px;
-        cursor: pointer;
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
       }
       header {
         height: 30px;
@@ -37,67 +57,51 @@ a {
     .searchBar {
       position: relative;
       img {
+        @include imgSize(12px, 12px, 9px 0, inherit);
         z-index: 5;
-        width: 12px;
-        height: 12px;
         position: absolute;
         left: 80px;
-        margin: 11px 0;
         filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
       }
       input {
+        @include border(1px solid #dddddd, 2px);
         width: 215px;
-        height: 28px;
         background-color: #fafafa;
-        border: 1px solid #dddddd;
-        border-radius: 2px;
         text-align: center;
+        padding: 6px 0;
       }
     }
     .menu {
       img {
-        width: 22px;
-        height: 22px;
-        margin-left: 20px;
-        cursor: pointer;
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
       }
     }
   }
   main {
+    @include sort(flex, center, none);
     border-top: 0.5px solid #c4c4c4;
-    display: flex;
-    justify-content: center;
     padding-top: 24px;
     .feeds {
-      border: 1px solid #c4c4c4;
-      border-radius: 2px;
+      @include border(1px solid #c4c4c4, 2px);
       margin-right: 20px;
       width: 614px;
       .profileTop {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include sort(flex, space-between, center);
         .profileName {
+          @include sort(flex, none, center);
           padding: 16px;
           height: 60px;
-          display: flex;
-          align-items: center;
           img {
-            width: 32px;
-            height: 32px;
+            @include imgSize(32px, 32px, 0 14px 0 0, pointer);
             border-radius: 20px;
-            margin-right: 14px;
-            cursor: pointer;
           }
           span {
-            font-size: 15px;
-            font-weight: 700;
+            @include font(15px, 700, inherit, inherit);
           }
         }
         .addFunction {
           img {
-            width: 15px;
-            margin-right: 20px;
+            @include imgSize(15px, auto, 0 12px 0 0, inherit);
           }
         }
       }
@@ -106,35 +110,23 @@ a {
           width: 100%;
         }
         .reactionBtn {
-          display: flex;
-          justify-content: space-between;
+          @include sort(flex, space-between, none);
           padding: 0 10px;
           .reactionLeft {
             img {
-              width: 24px;
-              height: 24px;
-              margin: 8px;
-              cursor: pointer;
+              @include imgSize(24px, 24px, 8px, pointer);
             }
           }
           img {
-            width: 24px;
-            height: 24px;
-            margin: 8px;
-            cursor: pointer;
+            @include imgSize(24px, 24px, 8px, pointer);
           }
         }
         .likeName {
+          @include sort(flex, none, center);
           padding: 0 16px 10px 16px;
-          display: flex;
-          align-items: center;
           img {
-            width: 32px;
-            height: 32px;
-            border-radius: 20px;
-            border: 0.5px solid #c4c4c4;
-            margin-right: 14px;
-            cursor: pointer;
+            @include imgSize(32px, 32px, 0 14px 0 0, pointer);
+            @include border(0.5px solid #c4c4c4, 20px);
           }
           span {
             font-size: 12px;
@@ -145,9 +137,8 @@ a {
           padding: 0 0 0 16px;
           align-items: center;
           .id {
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
+            @include font(14px, 700, inherit, pointer);
+            text-decoration: none;
             &:hover {
               text-decoration: underline;
             }
@@ -158,14 +149,12 @@ a {
           }
         }
         .reply {
-          display: flex;
-          justify-content: space-between;
+          @include sort(flex, space-between, none);
           .content {
             .reId {
-              font-size: 14px;
-              color: #124172;
-              cursor: pointer;
+              @include font(14px, inherit, #124172, pointer);
               margin-left: 8px;
+              text-decoration: none;
             }
             .reText {
               font-size: 12px;
@@ -173,10 +162,7 @@ a {
             }
           }
           .reHeart {
-            width: 13px;
-            height: 13px;
-            margin-right: 16px;
-            cursor: pointer;
+            @include imgSize(13px, 13px, 0 16px 0 0, pointer);
             filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
           }
         }
@@ -185,9 +171,7 @@ a {
         margin-top: 10px;
         border-top: 0.5px solid #c4c4c4;
         height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include sort(flex, space-between, center);
         .replyText {
           border: none;
           padding-left: 16px;
@@ -211,153 +195,119 @@ a {
     }
     .mainRight {
       .myStatus {
-        display: flex;
-        align-items: center;
+        @include sort(flex, none, center);
         img {
-          width: 56px;
-          height: 56px;
+          @include imgSize(56px, 56px, 0, pointer);
           border-radius: 35px;
         }
         .myInform {
-          display: flex;
-          flex-direction: column;
+          @include verticalAlign(flex, column);
           margin-left: 16px;
           span {
             &:first-child {
-              font-size: 18px;
-              font-weight: 700;
-              cursor: pointer;
+              @include font(15px, 700, inherit, pointer);
             }
             &:last-child {
-              font-size: 18px;
-              font-weight: 400;
-              color: #c4c4c4;
+              @include font(14px, 700, #c4c4c4, inherit);
             }
           }
         }
       }
       .story {
+        @include border(1px solid #c4c4c4, 5px);
         width: 328px;
-        border: 1px solid #c4c4c4;
-        border-radius: 5px;
         margin-top: 20px;
         padding: 10px;
         .storyTitle {
-          display: flex;
-          justify-content: space-between;
+          @include sort(flex, space-between, none);
           margin-bottom: 15px;
           span {
             &:first-child {
-              font-size: 15px;
-              color: #c4c4c4;
+              @include font(15px, inherit, #c4c4c4, inherit);
             }
             &:last-child {
-              font-size: 15px;
-              font-weight: 500;
-              cursor: pointer;
+              @include font(15px, 500, inherit, pointer);
             }
           }
         }
         .friendStory {
           padding: 5px;
-          display: flex;
-          align-items: center;
+          @include sort(flex, none, center);
           img {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #d22d84;
-            border-radius: 30px;
+            @include imgSize(40px, 40px, 0, pointer);
+            @include border(1px solid #d22d84, 30px);
             padding: 2px;
-            cursor: pointer;
           }
           .friendInform {
-            display: flex;
-            flex-direction: column;
+            @include verticalAlign(flex, column);
             margin-left: 16px;
             span {
               &:first-child {
-                font-size: 14px;
-                font-weight: 700;
-                cursor: pointer;
+                @include font(14px, 700, inherit, pointer);
               }
               &:last-child {
-                font-size: 14px;
-                font-weight: 400;
-                color: #c4c4c4;
+                @include font(14px, 400, #c4c4c4, inherit);
+                margin-top: 5px;
               }
             }
           }
         }
       }
       .recommand {
+        @include border(1px solid #c4c4c4, 5px);
         width: 328px;
-        border: 1px solid #c4c4c4;
-        border-radius: 5px;
         margin-top: 20px;
         padding: 10px;
         .customerTitle {
-          display: flex;
-          justify-content: space-between;
+          @include sort(flex, space-between, none);
           margin-bottom: 15px;
           span {
             &:first-child {
-              font-size: 15px;
-              color: #c4c4c4;
+              @include font(15px, inherit, #c4c4c4, inherit);
             }
             &:last-child {
-              font-size: 15px;
-              font-weight: 500;
-              cursor: pointer;
+              @include font(15px, 500, inherit, pointer);
             }
           }
         }
         .recommandList {
           padding: 5px 0;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          @include sort(flex, space-between, center);
           .recommandProfile {
-            display: flex;
-            align-items: center;
+            @include sort(flex, none, center);
             img {
-              width: 35px;
-              height: 35px;
+              @include imgSize(35px, 35px, 0, pointer);
               border-radius: 30px;
-              cursor: pointer;
             }
             .friendInform {
-              display: flex;
-              flex-direction: column;
+              @include verticalAlign(flex, column);
               margin-left: 16px;
               span {
                 &:first-child {
-                  font-size: 14px;
-                  font-weight: 700;
-                  cursor: pointer;
+                  @include font(14px, 700, inherit, pointer);
                 }
                 &:last-child {
-                  font-size: 14px;
-                  font-weight: 400;
-                  color: #c4c4c4;
+                  @include font(14px, 400, #c4c4c4, inherit);
+                  margin-top: 5px;
                 }
               }
             }
           }
           button {
+            @include font(15px, 500, #1e9af7, pointer);
             border: none;
             background-color: white;
-            color: #1e9af7;
-            font-weight: 500;
-            font-size: 15px;
-            cursor: pointer;
           }
         }
       }
       div {
         .etcList {
+          @include font(14px, inherit, #c4c4c4, inherit);
           margin-top: 16px;
-          color: #c4c4c4;
-          font-size: 14px;
+          span {
+            display: block;
+            margin-top: 5px;
+          }
           p {
             margin-top: 16px;
           }
