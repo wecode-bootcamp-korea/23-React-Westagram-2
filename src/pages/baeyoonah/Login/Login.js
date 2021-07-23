@@ -7,6 +7,27 @@ class LoginAh extends React.Component {
     this.props.history.push('/MainAh');
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      idInput: '',
+      pwInput: '',
+    };
+  }
+  handleIdInput = event => {
+    this.setState({
+      idInput: event.target.value,
+    });
+    console.log('아이디가 나오는지 확인');
+  };
+
+  handlePwInput = event => {
+    this.setState({
+      pwInput: event.target.value,
+    });
+    console.log('비밀번호가 나오는지 확인');
+  };
+
   render() {
     return (
       <div className="Login">
@@ -15,6 +36,7 @@ class LoginAh extends React.Component {
             <p>westagram</p>
             <div className="idContainer">
               <input
+                onChange={this.handleIdInput}
                 type="text"
                 id="inputId"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -22,6 +44,7 @@ class LoginAh extends React.Component {
             </div>
             <div className="passwordContainer">
               <input
+                onChange={this.handlePwInput}
                 type="password"
                 id="inputPassword"
                 placeholder="비밀번호"
