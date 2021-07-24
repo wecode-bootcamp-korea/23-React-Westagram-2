@@ -9,12 +9,16 @@ class LoginSeul extends React.Component {
       id: '',
       pw: '',
       opacity: '0.3',
+      disabled: 'disabled',
     };
   }
   handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    this.state.id.includes('@') && this.state.pw.length >= 5
+      ? this.setState({ opacity: '1', disabled: '' })
+      : this.setState({ opacity: '0.3', disabled: 'disabled' });
   };
 
   goToMain = () => {
@@ -43,6 +47,7 @@ class LoginSeul extends React.Component {
         <div className="login-btn-box">
           <button
             onClick={this.goToMain}
+            disabled={this.state.disabled}
             style={{ opacity: this.state.opacity }}
             className="login-btn"
           >
