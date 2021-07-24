@@ -12,20 +12,28 @@ class LoginAh extends React.Component {
     this.state = {
       idInput: '',
       pwInput: '',
+      defaultColor: { backgroundColor: 'skyblue' },
     };
   }
+
   handleIdInput = event => {
     this.setState({
       idInput: event.target.value,
     });
-    console.log('아이디가 나오는지 확인');
+    this.state.idInput.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/) != null &&
+    this.state.pwInput.length >= 5
+      ? this.setState({ defaultColor: { backgroundColor: 'blue' } })
+      : this.setState({ defalutColor: { backgroundColor: 'skyblue' } });
   };
 
   handlePwInput = event => {
     this.setState({
       pwInput: event.target.value,
     });
-    console.log('비밀번호가 나오는지 확인');
+    this.state.idInput.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/) != null &&
+    this.state.pwInput.length >= 5
+      ? this.setState({ defaultColor: { backgroundColor: 'blue' } })
+      : this.setState({ defalutColor: { backgroundColor: 'skyblue' } });
   };
 
   render() {
@@ -50,7 +58,11 @@ class LoginAh extends React.Component {
                 placeholder="비밀번호"
               />
             </div>
-            <button className="loginButton" onClick={this.goToMain}>
+            <button
+              style={this.state.defaultColor}
+              className="loginButton"
+              onClick={this.goToMain}
+            >
               로그인
             </button>
             <div>
