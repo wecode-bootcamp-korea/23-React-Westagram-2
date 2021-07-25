@@ -14,7 +14,7 @@ class Nav extends React.Component {
           </div>
           <div className="searchBar">
             <div>
-              <img src="/images/Nav/magnifying-glass.png" />
+              <img src="/images/Nav/magnifying-glass.png" alt="" />
               <input type="text" placeholder="검색" />
             </div>
           </div>
