@@ -108,41 +108,44 @@
             }
 
             .comment-list-box {
-              padding-left: 20px;
-              padding-bottom: 20px;
-              .comment-list {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
+              .comment-lists {
                 padding-top: 6px;
                 font-size: 13px;
+                li {
+                  display:flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  padding:5px 0px 5px 20px;
+                  span:first-child {
+                    padding-right:10px;
+                    font-weight:bold;
+                  }
+                }
                 .comment-id-box {
-                  margin-right: 20px;
-                  font-size: 13px;
-                  font-weight: bold;
-                  color: #333;
+                  margin-right:20px;
+                  font-size:13px;
+                  font-weight:bold;
+                  color:#333;
                 }
               }
             }
 
             .comment-write {
               @include flex-between;
-              height: 56px;
-              padding: 0 20px;
+              margin-top:20px;
+              padding: 10px 20px;
               border-top: 1px solid #dbdbdb;
-              div {
-                flex-grow: 1;
+              
+              input {
+                width:90%;
                 height: 100%;
-                input {
-                  width: 100%;
-                  height: 100%;
-                  border: none;
+                border: none;
 
-                  &:focus {
-                    outline: none;
-                  }
+                &:focus {
+                  outline: none;
                 }
               }
+              
 
               button {
                 font-size: 14px;
