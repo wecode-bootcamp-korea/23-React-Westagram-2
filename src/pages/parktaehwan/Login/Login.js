@@ -2,23 +2,23 @@ import React from 'react';
 // import IdInput from './IdInput';
 // import PwInput from './PwInput';
 import IdPwInput from './IdPwInput';
-import LoginBtn from './Button';
 import './Login.scss';
 
 class LoginHwan extends React.Component {
+  goToMain = () => {
+    this.props.history.push('/MainHwan');
+  };
+
   render() {
     return (
-      <body className="loginBody">
+      <div className="loginBody">
         <div className="Loginmain">
           <div className="mainWrap">
             <header className="logo">westagram</header>
             <section className="loginInputs">
               <div className="idPw">
-                {/* <IdInput />
-                <PwInput /> */}
-                <IdPwInput />
+                <IdPwInput goToMain={this.goToMain} />
               </div>
-              <LoginBtn />
             </section>
             <footer>
               <div className="forgotPw">
@@ -29,7 +29,7 @@ class LoginHwan extends React.Component {
             </footer>
           </div>
         </div>
-      </body>
+      </div>
     );
   }
 }

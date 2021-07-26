@@ -7,6 +7,8 @@ class IdPwInput extends React.Component {
     this.state = {
       Id: '',
       Pw: '',
+      btnChange: 'loginBtn',
+      disabled: true,
     };
   }
 
@@ -22,10 +24,30 @@ class IdPwInput extends React.Component {
     });
   };
 
+  loginKeyup = () => {
+    if (this.state.Id.includes('@') && this.state.Pw.length >= 5) {
+      this.setState({
+        btnChange: 'loginBtnOn',
+        disabled: false,
+      });
+    } else {
+      this.setState({
+        btnChange: 'loginBtn',
+        disabled: true,
+      });
+    }
+  };
+
+  pressEnter = e => {
+    if (e.key === 'Enter') {
+      this.props.goToMain();
+    }
+  };
+
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div onKeyUp={this.loginKeyup}>
         <input
           id="inputId"
           className="inputId"
@@ -45,7 +67,17 @@ class IdPwInput extends React.Component {
           onChange={e => {
             this.handlePwInput(e);
           }}
+          onKeyPress={this.pressEnter}
         />
+        <div className="btn">
+          <button
+            onClick={this.props.goToMain}
+            className={this.state.btnChange}
+            disabled={this.state.disabled}
+          >
+            로그인
+          </button>
+        </div>
       </div>
     );
   }
