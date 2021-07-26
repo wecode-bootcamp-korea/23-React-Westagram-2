@@ -8,12 +8,14 @@ class Comment extends React.Component {
     this.state = {
       inputValue: '',
       comments: [],
+      disabled: true,
     };
   }
 
   handleInputValue = e => {
     this.setState({
       inputValue: e.target.value,
+      disabled: false,
     });
   };
 
@@ -22,6 +24,7 @@ class Comment extends React.Component {
     this.setState({
       comments: this.state.comments,
       inputValue: '',
+      disabled: true,
     });
   };
 
@@ -105,7 +108,11 @@ class Comment extends React.Component {
             />
           </div>
           <div>
-            <button className="commentBtn" onClick={this.clickUpload}>
+            <button
+              className="commentBtn"
+              onClick={this.clickUpload}
+              disabled={this.state.disabled}
+            >
               게시
             </button>
           </div>
