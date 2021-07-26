@@ -1,3 +1,5 @@
+@import 'https://use.fontawesome.com/releases/v5.15.3/css/all.css';
+
 @mixin flex($jc: center, $ai: center) {
   display: flex;
   justify-content: $jc;
@@ -109,11 +111,18 @@
               justify-content: space-between;
               margin: 3px 0;
               .commentLeft {
+                display: flex;
                 word-break: break-all;
+                .commentWriter {
+                  margin-right: 5px;
+                }
               }
               .commentHeartBox {
                 display: flex;
-                align-items: flex-end;
+                justify-content: flex-end;
+                .commentHeart {
+                  width: 30%;
+                }
               }
             }
           }

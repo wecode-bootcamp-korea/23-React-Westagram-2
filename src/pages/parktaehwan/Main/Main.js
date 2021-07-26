@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../../../components/Nav/Nav';
+import Comment from './Comment';
 import './Main.scss';
 
 class MainHwan extends React.Component {
@@ -9,7 +10,7 @@ class MainHwan extends React.Component {
 
   render() {
     return (
-      <body className="mainBody">
+      <div className="mainBody">
         <Nav />
         <main className="mainPage">
           <div className="feeds">
@@ -71,46 +72,12 @@ class MainHwan extends React.Component {
                 </div>
                 <div className="contentComment">
                   <div className="contentWriter">
-                    <a href="#">wecode_bootcamp</a> 시간이 너무 빨리 간다..
+                    <a href="">wecode_bootcamp</a> 시간이 너무 빨리 간다..
                   </div>
                   <div className="commentPop">댓글 10000개 모두 보기</div>
                 </div>
-                <div className="contentComment newComment">
-                  <div className="comment">
-                    <div className="commentLeft">
-                      <a href="#">wecode_bootcamp</a> 한 것도 없는데 벌써 9시..
-                    </div>
-                    <div className="commentHeartBox">
-                      <i className="far fa-heart like commentHeart"></i>
-                    </div>
-                  </div>
-                  <div className="comment">
-                    <div className="commentLeft">
-                      <a href="#">wecode_bootcamp</a> 한 것도 없는데 벌써 10시..
-                    </div>
-                    <div className="commentHeartBox">
-                      <i className="far fa-heart like commentHeart"></i>
-                    </div>
-                  </div>
-                </div>
-                <div className="time">
-                  <div className="writeTime">10000시간 전</div>
-                </div>
+                <Comment />
               </article>
-              <footer className="writeComment">
-                <div className="commentInputBox">
-                  <input
-                    className="commentInput"
-                    type="text"
-                    placeholder="댓글 달기..."
-                  />
-                </div>
-                <div>
-                  <button className="commentBtn" disabled>
-                    게시
-                  </button>
-                </div>
-              </footer>
             </section>
           </div>
           <aside>
@@ -264,7 +231,7 @@ class MainHwan extends React.Component {
             </footer>
           </aside>
         </main>
-      </body>
+      </div>
     );
   }
 }
