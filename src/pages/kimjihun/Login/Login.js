@@ -2,6 +2,19 @@ import React from 'react';
 import './Login.scss';
 import { withRouter } from 'react-router-dom';
 class LoginHun extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      userIdValue: '',
+      userPasswordValue: '',
+    };
+  }
+  handleIdInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   goToMain = () => {
     this.props.history.push('/MainHun');
   };
@@ -17,15 +30,18 @@ class LoginHun extends React.Component {
         <section className="user-login">
           <div className="user-input">
             <input
-              className="user-id"
-              type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              autofocus
+              onChange={this.handleIdInput}
+              type="text"
+              className="user-id"
+              name="userIdValue"
             />
             <input
-              className="user-password"
-              type="password"
               placeholder="비밀번호"
+              onChange={this.handleIdInput}
+              type="password"
+              className="user-password"
+              name="userPasswordValue"
             />
             <button className="login-btn" type="button" onclick={this.goToMain}>
               로그인
