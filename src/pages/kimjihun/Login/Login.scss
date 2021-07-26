@@ -50,10 +50,13 @@ body {
     width: 268px;
     height: 30px;
     margin: 15px;
-    background-color: #b9dffc;
+    background-color: #0095f6;
     color: white;
     border: none;
     border-radius: 5px;
+    &:disabled {
+      background-color: #0094f673;
+    }
   }
 
   input {

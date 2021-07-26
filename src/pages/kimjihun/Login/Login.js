@@ -9,7 +9,7 @@ class LoginHun extends React.Component {
       userPasswordValue: '',
     };
   }
-  handleIdInput = e => {
+  handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -20,6 +20,7 @@ class LoginHun extends React.Component {
   };
 
   render() {
+    const { userIdValue, userPasswordValue } = this.state;
     return (
       <div className="container">
         <header className="login-body">
@@ -31,19 +32,29 @@ class LoginHun extends React.Component {
           <div className="user-input">
             <input
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={this.handleIdInput}
+              onFocus={this.inputFocus}
+              onChange={this.handleInput}
               type="text"
               className="user-id"
               name="userIdValue"
             />
             <input
               placeholder="비밀번호"
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
               type="password"
               className="user-password"
               name="userPasswordValue"
             />
-            <button className="login-btn" type="button" onclick={this.goToMain}>
+            <button
+              className="login-btn"
+              type="button"
+              onclick={this.goToMain}
+              disabled={
+                userIdValue.includes('@') && userPasswordValue.length > 4
+                  ? false
+                  : true
+              }
+            >
               로그인
             </button>
           </div>
