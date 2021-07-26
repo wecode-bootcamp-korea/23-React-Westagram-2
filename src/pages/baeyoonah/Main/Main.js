@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
-import Comment from '../Comment/Comment';
+import CommentList from '../Comment/CommentList';
 import './Main.scss';
 
 class MainAh extends React.Component {
@@ -54,7 +54,7 @@ class MainAh extends React.Component {
                     neceosecius
                     <span className="feedsText">거봐 좋았잖아~~~</span>
                   </p>
-                  <Comment />
+                  <CommentList />
                 </div>
               </div>
             </article>
