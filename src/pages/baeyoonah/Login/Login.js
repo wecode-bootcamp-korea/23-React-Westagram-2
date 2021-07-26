@@ -13,27 +13,23 @@ class LoginAh extends React.Component {
       idInput: '',
       pwInput: '',
       defaultColor: { backgroundColor: 'skyblue' },
+      disabled: 'disabled',
     };
   }
 
-  handleIdInput = event => {
+  handleInput = event => {
     this.setState({
-      idInput: event.target.value,
+      [event.target.name]: event.target.value,
     });
-    this.state.idInput.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/) != null &&
-    this.state.pwInput.length >= 5
-      ? this.setState({ defaultColor: { backgroundColor: 'blue' } })
-      : this.setState({ defalutColor: { backgroundColor: 'skyblue' } });
-  };
-
-  handlePwInput = event => {
-    this.setState({
-      pwInput: event.target.value,
-    });
-    this.state.idInput.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/) != null &&
-    this.state.pwInput.length >= 5
-      ? this.setState({ defaultColor: { backgroundColor: 'blue' } })
-      : this.setState({ defalutColor: { backgroundColor: 'skyblue' } });
+    this.state.idInput.includes('@') && this.state.pwInput.length >= 5
+      ? this.setState({
+          defaultColor: { backgroundColor: 'blue' },
+          disabled: '',
+        })
+      : this.setState({
+          defalutColor: { backgroundColor: 'skyblue' },
+          disabled: 'disabled',
+        });
   };
 
   render() {
@@ -44,7 +40,8 @@ class LoginAh extends React.Component {
             <p>westagram</p>
             <div className="idContainer">
               <input
-                onChange={this.handleIdInput}
+                onChange={this.handleInput}
+                name="idInput"
                 type="text"
                 id="inputId"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -52,13 +49,15 @@ class LoginAh extends React.Component {
             </div>
             <div className="passwordContainer">
               <input
-                onChange={this.handlePwInput}
+                onChange={this.handleInput}
+                name="pwInput"
                 type="password"
                 id="inputPassword"
                 placeholder="비밀번호"
               />
             </div>
             <button
+              disabled={this.state.disabled}
               style={this.state.defaultColor}
               className="loginButton"
               onClick={this.goToMain}

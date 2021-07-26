@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
+import Comment from '../Comment/Comment';
 import './Main.scss';
 
 class MainAh extends React.Component {
@@ -40,7 +41,7 @@ class MainAh extends React.Component {
                 <div>
                   <img src="/images/baeyoonah/Main/mark.png" alt="" />
                   <span className="feedsId">ainworld</span>
-                  <span class="feedsText">님 외 4명이 좋아합니다.</span>
+                  <span className="feedsText">님 외 4명이 좋아합니다.</span>
                 </div>
                 <div>
                   <p className="feedsId">
@@ -53,16 +54,8 @@ class MainAh extends React.Component {
                     neceosecius
                     <span className="feedsText">거봐 좋았잖아~~~</span>
                   </p>
-                  <div id="newComment"></div>
+                  <Comment />
                 </div>
-              </div>
-              <div className="newText">
-                <input
-                  id="typingText"
-                  type="text"
-                  placeholder="댓글 달기...."
-                />
-                <button id="button">게시</button>
               </div>
             </article>
           </div>
