@@ -6,9 +6,9 @@ class NewComment extends React.Component {
       <div className="comment">
         <div className="commentLeft">
           <a href="#" className="commentWriter">
-            wecode_bootcamp
+            {this.props.cmtName}
           </a>{' '}
-          <span>한 것도 없는데 벌써 9시..</span>
+          <span>{this.props.cmtContent}</span>
         </div>
         <div className="commentHeartBox">
           <img alt="like" src="/images/Nav/like.png" className="commentHeart" />

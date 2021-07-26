@@ -7,9 +7,22 @@ class Comment extends React.Component {
 
     this.state = {
       inputValue: '',
+      commentList: [],
       comments: [],
       disabled: true,
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
   }
 
   handleInputValue = e => {
@@ -43,52 +56,19 @@ class Comment extends React.Component {
     return (
       <div className="content">
         <div className="contentComment newComment">
-          <div className="comment">
-            <div className="commentLeft">
-              <a href="#" className="commentWriter">
-                wecode_bootcamp
-              </a>{' '}
-              <span>한 것도 없는데 벌써 9시..</span>
-            </div>
-            <div className="commentHeartBox">
-              <img
-                alt="like"
-                src="/images/Nav/like.png"
-                className="commentHeart"
-              />
-            </div>
-          </div>
-          <div className="comment">
-            <div className="commentLeft">
-              <a href="#" className="commentWriter">
-                wecode_bootcamp
-              </a>{' '}
-              <span>한 것도 없는데 벌써 10시..</span>
-            </div>
-            <div className="commentHeartBox">
-              <img
-                alt="like"
-                src="/images/Nav/like.png"
-                className="commentHeart"
-              />
-            </div>
-          </div>
+          {/* <NewComment
+            cmtName="mekemeke"
+            cmtContent="한 것도 없는데 벌써 9시..."
+          />
+          <NewComment
+            cmtName="wecode_mento"
+            cmtContent="더 공부하세요 더 노력하세요"
+          /> */}
+          {this.state.commentList.map(el => (
+            <NewComment cmtName={el.cmtName} cmtContent={el.cmtContent} />
+          ))}
           {this.state.comments.map(el => (
-            <div className="comment">
-              <div className="commentLeft">
-                <a href="#" className="commentWriter">
-                  wecode_bootcamp
-                </a>
-                <span>{el}</span>
-              </div>
-              <div className="commentHeartBox">
-                <img
-                  alt="like"
-                  src="/images/Nav/like.png"
-                  className="commentHeart"
-                />
-              </div>
-            </div>
+            <NewComment cmtName="mekemeke" cmtContent={el} />
           ))}
         </div>
         <div className="time">
