@@ -16,7 +16,7 @@
   .mainPage {
     @include flexDirection(row);
     width: 935px;
-    margin-top: 30px;
+    margin-top: 90px;
     .feeds {
       height: 100vh;
       margin-right: 28px;
@@ -24,6 +24,7 @@
         @include flexDirection(column);
         background-color: white;
         border: 1px solid #dbdbdb;
+        margin-bottom: 30px;
         .writer {
           @include flex(space-between, center);
           flex-direction: row;
@@ -160,75 +161,80 @@
     }
     aside {
       width: 293px;
-      .myProfile {
-        @include flex(space-between, center);
-        flex-direction: row;
-        margin-bottom: 15px;
-        .myProfileLeft {
-          @include flexDirection(row);
-          .myProfileImgBox {
-            width: 46px;
-            height: 46px;
-            border-radius: 70%;
-            overflow: hidden;
-          }
-          .myProfileNameBox {
-            @include flexDirection(column);
-            justify-content: center;
-            margin-left: 15px;
-            font-size: 15px;
-            font-weight: bold;
-            .myProfileSub {
-              color: #bcbcbc;
+      position: relative;
+      .asideBox {
+        position: fixed;
+        max-width: 291px;
+        .myProfile {
+          @include flex(space-between, center);
+          flex-direction: row;
+          margin-bottom: 15px;
+          .myProfileLeft {
+            @include flexDirection(row);
+            .myProfileImgBox {
+              width: 46px;
+              height: 46px;
+              border-radius: 70%;
+              overflow: hidden;
+            }
+            .myProfileNameBox {
+              @include flexDirection(column);
+              justify-content: center;
+              margin-left: 15px;
+              font-size: 15px;
+              font-weight: bold;
+              .myProfileSub {
+                color: #bcbcbc;
+              }
             }
           }
         }
-      }
-      .asideSection {
-        @include flexDirection(column);
-        padding: 13px;
-        border: 1px solid #dbdbdb;
-        background-color: white;
-        font-weight: bold;
-        margin-bottom: 15px;
-        .asideSectionTitle {
-          @include flexDirection(row);
-          justify-content: space-between;
-          margin-bottom: 5px;
-          font-size: 14px;
-          .asideSectionTitleName {
-            color: #bcbcbc;
+        .asideSection {
+          @include flexDirection(column);
+          padding: 13px;
+          border: 1px solid #dbdbdb;
+          background-color: white;
+          font-weight: bold;
+          margin-bottom: 15px;
+          .asideSectionTitle {
+            @include flexDirection(row);
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+            .asideSectionTitleName {
+              color: #bcbcbc;
+            }
           }
-        }
-        .asideSectionProfile {
-          @include flexDirection(row);
-          align-items: center;
-          padding-top: 5px;
-          .followBtn {
-            border: 0;
-            color: #0095f6;
-            background-color: white;
-          }
-          .asideSectionProfileLeft {
+          .asideSectionProfile {
             @include flexDirection(row);
             align-items: center;
-          }
-          .asideSectionNameBox {
-            @include flexDirection(column);
-            font-size: 14px;
-            .asideSectionDes {
-              color: #bcbcbc;
+            padding-top: 5px;
+            .followBtn {
+              border: 0;
+              color: #0095f6;
+              background-color: white;
+            }
+            .asideSectionProfileLeft {
+              @include flexDirection(row);
+              align-items: center;
+            }
+            .asideSectionNameBox {
+              @include flexDirection(column);
+              font-size: 14px;
+              .asideSectionDes {
+                color: #bcbcbc;
+              }
             }
           }
+          .follow {
+            justify-content: space-between;
+          }
         }
-        .follow {
-          justify-content: space-between;
+        .intro {
+          color: #dbdbdb;
+          font-size: 15px;
+          font-weight: bold;
         }
-      }
-      .intro {
-        color: #dbdbdb;
-        font-size: 15px;
-        font-weight: bold;
       }
     }
   }

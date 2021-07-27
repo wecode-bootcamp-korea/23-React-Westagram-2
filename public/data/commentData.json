@@ -1,17 +1,21 @@
 [
   {
+    "userId": 1,
     "cmtName": "mekemeke",
     "cmtContent": "한 것도 없는데 벌써 9시..."
   },
   {
+    "userId": 2,
     "cmtName": "wecode_mento",
     "cmtContent": "더 공부하세요 더 노력하세요"
   },
   {
+    "userId": 3,
     "cmtName": "mekemeke",
     "cmtContent": "질문있습니다."
   },
   {
+    "userId": 4,
     "cmtName": "wecode_mento",
     "cmtContent": "질문사절"
   }
