@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../../components/Nav/Nav';
-import Comment from './Comment';
+import CommentList from './CommentList';
 import './Main.scss';
 
 class MainSeul extends React.Component {
@@ -65,7 +65,7 @@ class MainSeul extends React.Component {
                   <div className="comment-count">
                     <span>coke</span>님 외 <span>여러 명</span>이 좋아합니다.
                   </div>
-                  <Comment />
+                  <CommentList />
                 </div>
               </article>
             </div>
