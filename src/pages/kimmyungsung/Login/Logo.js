@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Logo extends React.Component {
   render() {
     return (
       <header className="Logo">
-        <a href="LoginSung">Westagram</a>
+        <Link>Westagram</Link>
       </header>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Login.scss';
 import Logo from './Logo';
 import LoginInput from './LoginInput';
+import './Login.scss';
 
 class LoginSung extends React.Component {
   render() {

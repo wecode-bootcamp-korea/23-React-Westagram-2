@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CommentList extends Component {
+class CommentList extends React.Component {
   constructor() {
     super();
     this.state = {
