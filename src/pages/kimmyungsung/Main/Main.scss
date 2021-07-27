@@ -105,7 +105,7 @@ a {
           }
         }
       }
-      article {
+      .MainContents {
         img {
           width: 100%;
         }
@@ -114,11 +114,11 @@ a {
           padding: 0 10px;
           .reactionLeft {
             img {
-              @include imgSize(24px, 24px, 8px, pointer);
+              @include imgSize(20px, 20px, 8px, pointer);
             }
           }
           img {
-            @include imgSize(24px, 24px, 8px, pointer);
+            @include imgSize(20px, 20px, 8px, pointer);
           }
         }
         .likeName {
@@ -156,13 +156,9 @@ a {
               margin-left: 8px;
               text-decoration: none;
             }
-            .reText {
-              font-size: 12px;
-              margin-left: 8px;
-            }
           }
           .reHeart {
-            @include imgSize(13px, 13px, 0 16px 0 0, pointer);
+            @include imgSize(12px, 12px, 0 16px 0 0, pointer);
             filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
           }
         }
@@ -173,22 +169,31 @@ a {
         height: 56px;
         @include sort(flex, space-between, center);
         .replyText {
+          flex: 9;
           border: none;
           padding-left: 16px;
           &:focus {
             outline: none;
           }
         }
-        .replySubmit {
+        .deActiveButton {
           border: none;
           background-color: white;
-          margin-right: 16px;
+          flex: 1;
+          margin: 0 auto;
           color: #1e9af7;
           font-weight: 500;
-          filter: opacity(0.2);
+          opacity: 0.2;
+          pointer-events: none;
         }
-        .buttonChange {
-          filter: opacity(1);
+        .activeButton {
+          border: none;
+          background-color: white;
+          flex: 1;
+          margin: 0 auto;
+          color: #1e9af7;
+          font-weight: 500;
+          opacity: 1;
           cursor: pointer;
         }
       }
@@ -300,16 +305,16 @@ a {
           }
         }
       }
-      div {
-        .etcList {
-          @include font(14px, inherit, #c4c4c4, inherit);
-          margin-top: 16px;
-          span {
-            display: block;
-            margin-top: 5px;
-          }
-          p {
-            margin-top: 16px;
+      footer {
+        width: 328px;
+        margin-top: 16px;
+        li {
+          @include font(14px, inherit, none, inherit);
+          display: inline-block;
+          margin: 5px 10px 0 0;
+          a {
+            text-decoration: none;
+            color: #c4c4c4;
           }
         }
       }

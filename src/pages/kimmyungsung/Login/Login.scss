@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 $atag-decoration: none;
+@mixin sort($display, $direction, $align) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align;
+}
+@mixin border($border, $radius) {
+  border: $border;
+  border-radius: $radius;
+}
+
+@mixin size($margin, $padding, $width) {
+  margin: $margin;
+  padding: $padding;
+  width: $width;
+}
 
 .LoginSung {
   position: absolute;
@@ -9,10 +24,8 @@ $atag-decoration: none;
   transform: translate(-50%, -50%);
   border: 1px solid #ededed;
   padding: 15px 50px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  .logo {
+  @include sort(flex, column, center);
+  .Logo {
     margin: 25px auto 40px;
     a {
       font-family: 'Lobster', cursive;
@@ -24,29 +37,38 @@ $atag-decoration: none;
       }
     }
   }
-  input {
-    border: 0.2px solid #ededed;
-    border-radius: 5px;
-    margin: 5px 0;
-    padding: 15px 10px;
-    width: 260px;
-    background-color: #fafafa;
-  }
-  .loginBtn {
-    border: none;
-    border-radius: 5px;
-    margin-top: 13px;
-    padding: 10px;
-    width: 260px;
-    background-color: #0095f6;
-    color: white;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: auto;
+  .LoginInput {
+    @include sort(flex, column, center);
+    input {
+      @include border(0.2px solid #ededed, 5px);
+      @include size(5px 0, 15px 10px, 260px);
+      background-color: #fafafa;
+    }
+    .deActiveLoginButton {
+      @include border(none, 5px);
+      @include size(13px 0 0 0, 10px, 260px);
+      background-color: #0095f6;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      pointer-events: none;
+      opacity: 0.2;
+    }
+    .activeLoginButton {
+      @include border(none, 5px);
+      @include size(13px 0 0 0, 10px, 260px);
+      background-color: #0095f6;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      opacity: 1;
+    }
   }
   .forgetPassword {
     margin-top: 25%;
     color: #325883;
     font-size: 13px;
+    text-decoration: $atag-decoration;
   }
 }
