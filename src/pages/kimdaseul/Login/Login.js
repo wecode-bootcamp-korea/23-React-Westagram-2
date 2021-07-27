@@ -8,17 +8,20 @@ class LoginSeul extends React.Component {
     this.state = {
       id: '',
       pw: '',
-      opacity: '0.3',
-      disabled: 'disabled',
+      opacity: false,
+      disabled: true,
     };
   }
   handleInput = e => {
+    const { value, name } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
-    this.state.id.includes('@') && this.state.pw.length >= 5
-      ? this.setState({ opacity: '1', disabled: '' })
-      : this.setState({ opacity: '0.3', disabled: 'disabled' });
+    const isValid = this.state.id.includes('@') && this.state.pw.length >= 5;
+    this.setState({
+      opacity: isValid,
+      disabled: !isValid,
+    });
   };
 
   goToMain = () => {
@@ -26,6 +29,8 @@ class LoginSeul extends React.Component {
   };
 
   render() {
+    const { disabled, opacity } = this.state;
+    const { handleInput } = this;
     return (
       <div className="login">
         <div className="login-logo">Westagram</div>
@@ -34,21 +39,21 @@ class LoginSeul extends React.Component {
             type="text"
             name="id"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={this.handleInput}
+            onChange={handleInput}
           />
           <input
             type="password"
             name="pw"
             placeholder="비밀번호"
             required
-            onChange={this.handleInput}
+            onChange={handleInput}
           />
         </div>
         <div className="login-btn-box">
           <button
             onClick={this.goToMain}
-            disabled={this.state.disabled}
-            style={{ opacity: this.state.opacity }}
+            disabled={disabled ? 'disabled' : ''}
+            style={{ opacity: opacity ? '1' : '0.3' }}
             className="login-btn"
           >
             로그인

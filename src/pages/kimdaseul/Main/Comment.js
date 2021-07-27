@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentLi from './CommentLi';
 import './Main.scss';
 
 class Comment extends React.Component {
@@ -11,14 +12,16 @@ class Comment extends React.Component {
   }
 
   saveValue = e => {
+    const { value } = e.target;
     this.setState({
-      content: e.target.value,
+      content: value,
     });
   };
 
   clickInsertValue = () => {
+    const { contents, content } = this.state;
     this.setState({
-      contents: this.state.contents.concat(this.state.content),
+      contents: contents.concat(content),
       content: '',
     });
   };
@@ -30,24 +33,20 @@ class Comment extends React.Component {
   };
 
   render() {
-    const commentLi = this.state.contents.map(list => (
-      <li>
-        <span>cocacola</span>
-        <span>{list}</span>
-      </li>
-    ));
+    const { contents, content } = this.state;
+    const { saveValue, enterInsertValue, clickInsertValue } = this;
     return (
       <div className="comment-list-box">
-        <ul className="comment-lists">{commentLi}</ul>
+        <CommentLi commentData={contents} />
         <div className="comment-write">
           <input
             type="text"
-            onChange={this.saveValue}
-            onKeyPress={this.enterInsertValue}
-            value={this.state.content}
+            onChange={saveValue}
+            onKeyPress={enterInsertValue}
+            value={content}
             placeholder="댓글달기"
           ></input>
-          <button onClick={this.clickInsertValue}>게시</button>
+          <button onClick={clickInsertValue}>게시</button>
         </div>
       </div>
     );
