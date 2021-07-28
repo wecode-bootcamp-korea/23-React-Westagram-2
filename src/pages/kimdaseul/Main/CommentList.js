@@ -35,8 +35,9 @@ class CommentList extends React.Component {
     fetch('http://localhost:3000/data/commentData.json', {
       method: 'GET',
     })
-      .then(res => res.json())
+      .then(res => res.json()) // server에서 보내준 response를 객체 형태로 변환
       .then(data => {
+        // data는 객체형태로 변환한 response임. 그걸 인자로 받고 setState 실행. commentList가 객체 형태로 변환된 response인 data로 state 변경됨.
         this.setState({
           commentList: data,
         });

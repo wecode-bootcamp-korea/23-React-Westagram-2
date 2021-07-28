@@ -1,73 +1,41 @@
 import React from 'react';
 import Nav from '../../../components/Nav/Nav';
-import CommentList from './CommentList';
+import Feed from './Feed';
 import './Main.scss';
 
 class MainSeul extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      feedList: [],
+    };
+  }
+  componentDidMount() {
+    fetch('http://localhost:3000/data/FeedData.json', {
+      method: 'GET',
+    })
+      .then(response => response.json()) // server에서 보내준 response를 객체 형태로 변환
+      .then(data => {
+        // data는 객체형태로 변환한 response임. 그걸 인자로 받고 setState 실행. commentList가 객체 형태로 변환된 response인 data로 state 변경됨.
+        this.setState({
+          feedList: data,
+        });
+      });
+  }
+
   render() {
+    const { feedList } = this.state;
     return (
       <div className="mainSeul">
         <Nav />
         <main>
           <section>
             <div className="main-left">
-              <article>
-                <div className="feed-profile">
-                  <div className="feed-profile-thumnail">
-                    <img
-                      src="../images/kimdaseul/profile.png"
-                      alt="프로필 썸네일"
-                    />
-                  </div>
-                  <div className="feed-profile-id">cocacollllla</div>
-                  <div className="feed-profile-more">
-                    <img
-                      src="https://image.flaticon.com/icons/png/512/512/512142.png"
-                      alt="프로필 메뉴 더보기"
-                    />
-                  </div>
-                </div>
-                <div className="feed-image">
-                  <img
-                    src="../images/kimdaseul/mainimage.png"
-                    alt="메인 피드 이미지"
-                  />
-                </div>
-                <div className="comment">
-                  <div className="response-icons">
-                    <ul>
-                      <li>
-                        <img
-                          src="https://image.flaticon.com/icons/png/512/1077/1077035.png"
-                          alt="하트 버튼"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://image.flaticon.com/icons/png/512/32/32562.png"
-                          alt="댓글달기 버튼"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://image.flaticon.com/icons/png/512/786/786205.png"
-                          alt="다이렉트메세지 보내기 버튼"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://image.flaticon.com/icons/png/512/786/786251.png"
-                          alt="북마크 버튼"
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="comment-count">
-                    <span>coke</span>님 외 <span>여러 명</span>이 좋아합니다.
-                  </div>
-                  <CommentList />
-                </div>
-              </article>
+              {feedList.map(feed => {
+                return (
+                  <Feed key={feed.id} name={feed.userName} img={feed.image} />
+                );
+              })}
             </div>
             <div className="main-right">
               <div className="my-profile">

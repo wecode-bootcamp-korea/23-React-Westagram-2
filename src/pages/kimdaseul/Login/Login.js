@@ -28,9 +28,34 @@ class LoginSeul extends React.Component {
     this.props.history.push('/mainseul');
   };
 
+  testzzz = () => {
+    fetch('http://10.58.3.99:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(
+        result => {
+          if (result.access_token) {
+            localStorage.setItem('token', result.access_token); // setItem('token') ??? setItem('access_token') ????
+            this.props.history.push('/mainseul');
+          } else {
+            alert('다시 입력');
+          }
+        }
+        // 삼항연산자 이용시
+        // result.access_token
+        //   ? this.props.history.push('/mainseul')
+        //   : alert('로그인 실패')
+      );
+  };
+
   render() {
     const { disabled, opacity } = this.state;
-    const { handleInput } = this;
+    const { handleInput, testzzz } = this;
     return (
       <div className="login">
         <div className="login-logo">Westagram</div>
@@ -51,7 +76,9 @@ class LoginSeul extends React.Component {
         </div>
         <div className="login-btn-box">
           <button
-            onClick={this.goToMain}
+            // onClick={this.goToMain}
+
+            onClick={testzzz}
             disabled={disabled ? 'disabled' : ''}
             style={{ opacity: opacity ? '1' : '0.3' }}
             className="login-btn"

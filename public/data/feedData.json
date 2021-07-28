@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "image": "./images/kimdaseul/mainimage.png"
+  },
+  {
+    "id": 2,
+    "userName": "cocacola",
+    "image": "./images/kimdaseul/mainimage1.jpg"
+  },
+  {
+    "id": 3,
+    "userName": "jayPark",
+    "image": "./images/kimdaseul/mainimage2.jpg"
+  },
+  {
+    "id": 4,
+    "userName": "wow",
+    "image": "./images/kimdaseul/mainimage3.jpg"
+  }
+]
