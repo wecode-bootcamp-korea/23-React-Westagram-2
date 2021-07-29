@@ -348,6 +348,14 @@ main {
     font-size: 12px;
   }
 
+  .comment-ul {
+    list-style-type: none;
+    padding-top: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
   .recommend-friend-profile {
     display: flex;
     align-items: flex-start;
@@ -358,4 +366,8 @@ main {
   .westa-script {
     opacity: 0.5;
   }
+}
+
+.time-log {
+  padding-left: 16px;
 }

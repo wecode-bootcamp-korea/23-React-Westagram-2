@@ -1,9 +1,40 @@
 import React from 'react';
 import Nav from '../../../components/Nav/Nav';
-import './Main.scss';
 import { withRouter } from 'react-router-dom';
+import CommentList from './CommentList';
 
+import './Main.scss';
 class MainHun extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+      commentList: [],
+    };
+  }
+
+  handleComment = e => {
+    this.setState({
+      comment: e.target.value,
+    });
+  };
+
+  handleList = () => {
+    if (this.state.comment.length === 0) {
+      return;
+    }
+
+    const newComment = {
+      comment: this.state.comment,
+      id: Date.now(),
+    };
+
+    this.setState(state => ({
+      commentList: state.commentList.concat(newComment),
+      comment: '',
+    }));
+  };
+
   render() {
     return (
       <div className="MainHun">
@@ -18,7 +49,7 @@ class MainHun extends React.Component {
                     <img
                       className="img-profile pic"
                       src="/images/kimjihun/user-img.jpeg"
-                      alt="wecode-founder-image"
+                      alt="wecode-founder-img"
                     />
                     <span
                       className="userID main-id point-span"
@@ -97,22 +128,31 @@ class MainHun extends React.Component {
                           src="/images/kimjihun/heart_s.png"
                           alt="하트"
                         />
+                        <CommentList commentList={this.state.commentList} />
                       </li>
                     </ul>
-                    <div className="time-log">
-                      <span>32분 전</span>
-                    </div>
                   </div>
                 </div>
-                <div className="hl"></div>
+
                 <div className="comment">
+                  <div className="time-log">
+                    <span>32분 전</span>
+                  </div>
                   <input
                     id="input-comment"
                     className="input-comment"
                     type="text"
                     placeholder="댓글 달기..."
+                    onChange={this.handleComment}
+                    value={this.state.comment}
                   />
-                  <button type="submit" className="submit-comment" disabled>
+                  <button
+                    className="commentButton"
+                    onClick={this.handleList}
+                    style={{
+                      opacity: this.state.comment.length >= 1 ? '1' : '0.5',
+                    }}
+                  >
                     게시
                   </button>
                 </div>
@@ -201,7 +241,7 @@ class MainHun extends React.Component {
                     <div className="recommend-friend-profile">
                       <img
                         className="img-profile"
-                        src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/79944746_546575142588788_4126000168724070400_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=dNzc-nltQ2oAX8cdGhB&tn=xHhZlNV2JuVsEhoO&edm=AEF8tYYBAAAA&ccb=7-4&oh=7fc6072a0db06b2adb0a31d8740346c0&oe=61044FE9&_nc_sid=a9513d"
+                        src="/images/kimjihun/lee.jpeg"
                         alt="lupercalia88님의 프로필 사진"
                       />
                       <div className="profile-text">
@@ -217,7 +257,7 @@ class MainHun extends React.Component {
                     <div className="recommend-friend-profile">
                       <img
                         className="img-profile"
-                        src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/82500505_879121952558255_1603738855591116800_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=Ffm5zzGVoDEAX9Chpxd&edm=AEF8tYYBAAAA&ccb=7-4&oh=d7b367212560202e191e3d17446ad688&oe=6105268F&_nc_sid=a9513d"
+                        src="/images/kimjihun/nam.jpeg"
                         alt="
                     isacc_jihyun_choi님의 프로필 사진"
                       />
@@ -236,7 +276,7 @@ class MainHun extends React.Component {
                     <div className="recommend-friend-profile">
                       <img
                         className="img-profile"
-                        src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/12345817_1731670323735453_100218076_a.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=KNAV601XZlwAX-6H33L&tn=xHhZlNV2JuVsEhoO&edm=ABfd0MgBAAAA&ccb=7-4&oh=a711dbcb8124c8b1c4fc6178ed8e226d&oe=6103BFC5&_nc_sid=7bff83"
+                        src="/images/kimjihun/choi.jpeg"
                         alt="teddysphotos님의 프로필 사진"
                       />
                       <div className="profile-text">
