@@ -15,6 +15,20 @@ class LoginHun extends React.Component {
     });
   };
 
+  locationEvent = e => {
+    fetch('http://10.58.0.181:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.userIdValue,
+        password: this.state.userPasswordValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('data:>>>>>', data);
+      });
+  };
+
   goToMain = () => {
     this.props.history.push('/MainHun');
   };
@@ -48,7 +62,7 @@ class LoginHun extends React.Component {
             <button
               className="login-btn"
               type="button"
-              onclick={this.goToMain}
+              onClick={this.locationEvent}
               disabled={
                 userIdValue.includes('@') && userPasswordValue.length > 4
                   ? false

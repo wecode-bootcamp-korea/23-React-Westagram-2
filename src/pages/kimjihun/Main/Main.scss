@@ -207,13 +207,10 @@ main {
   }
   ul.comments {
     margin-top: 5px;
-  }
-  ul.comments li {
-    height: 21px;
-    display: flex;
-    justify-content: space-between;
-    color: #262626;
-    font-size: 14px;
+    li {
+      height: 21px;
+      color: #262626;
+    }
   }
   img.comment-heart {
     width: 12px;
@@ -355,7 +352,9 @@ main {
     display: flex;
     align-items: flex-start;
   }
-
+  .userID {
+    font-weight: bold;
+  }
   .westa-script {
     opacity: 0.5;
   }

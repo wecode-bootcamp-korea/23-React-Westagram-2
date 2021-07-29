@@ -81,16 +81,16 @@ class MainHun extends React.Component {
                   <div className="description">
                     <span className="point-span userID">wecode-founder</span>
                     <span style={{ margin: '5px' }}>
-                      지구당 선릉 맛집 인정 안인정???
+                      라피자노스트라 블루베리피자 인정 안인정???
                     </span>
                   </div>
                   <div className="comment-section">
                     <ul className="comments">
                       <li>
                         <span className="point-span userID">godjinsu1004</span>
-                        <span>
-                          1호점도 그렇지만 2호점은 정말 양도 많이 주고 서비스도
-                          정말 최고에요...인정!!!
+                        <span style={{ margin: '5px' }}>
+                          블루베리 피자 정말 꿈에 나올 정도로
+                          JMT...인정!!킹인정!!
                         </span>
                         <img
                           className="comment-heart"
