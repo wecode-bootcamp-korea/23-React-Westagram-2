@@ -17,6 +17,7 @@ class LoginSeul extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(value);
     const isValid = this.state.id.includes('@') && this.state.pw.length >= 5;
     this.setState({
       opacity: isValid,
@@ -28,7 +29,7 @@ class LoginSeul extends React.Component {
     this.props.history.push('/mainseul');
   };
 
-  testzzz = () => {
+  signupLogin = () => {
     fetch('http://10.58.3.99:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -37,25 +38,19 @@ class LoginSeul extends React.Component {
       }),
     })
       .then(response => response.json())
-      .then(
-        result => {
-          if (result.access_token) {
-            localStorage.setItem('token', result.access_token); // setItem('token') ??? setItem('access_token') ????
-            this.props.history.push('/mainseul');
-          } else {
-            alert('다시 입력');
-          }
+      .then(result => {
+        if (result.access_token) {
+          localStorage.setItem('token', result.access_token);
+          this.props.history.push('/mainseul');
+        } else {
+          alert('다시 입력');
         }
-        // 삼항연산자 이용시
-        // result.access_token
-        //   ? this.props.history.push('/mainseul')
-        //   : alert('로그인 실패')
-      );
+      });
   };
 
   render() {
     const { disabled, opacity } = this.state;
-    const { handleInput, testzzz } = this;
+    const { handleInput, signupLogin } = this;
     return (
       <div className="login">
         <div className="login-logo">Westagram</div>
@@ -76,9 +71,7 @@ class LoginSeul extends React.Component {
         </div>
         <div className="login-btn-box">
           <button
-            // onClick={this.goToMain}
-
-            onClick={testzzz}
+            onClick={signupLogin}
             disabled={disabled ? 'disabled' : ''}
             style={{ opacity: opacity ? '1' : '0.3' }}
             className="login-btn"
