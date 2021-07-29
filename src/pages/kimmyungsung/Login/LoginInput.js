@@ -7,9 +7,28 @@ class LoginInput extends React.Component {
     this.state = {
       id: '',
       pw: '',
+      // name: '',
       className: 'deActiveLoginButton',
     };
   }
+
+  // handleEvent = e => {
+  //    e.preventDefault();
+  //   fetch('api 주소', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       password: this.state.pw,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       if (result.token) {
+  //         localStorage.setItem('token', result.token);
+  //         this.props.history.push('./');
+  //       }
+  //     });
+  // };
 
   handleInput = e => {
     const { value, name } = e.target;
@@ -20,6 +39,13 @@ class LoginInput extends React.Component {
       ? this.setState({ className: 'activeLoginButton' })
       : this.setState({ className: 'deActiveLoginButton' });
   };
+
+  // nameChenk = e => {
+  //   this.setState({
+  //     name: e.target.value,
+  //   });
+  //   console.log(this.state);
+  // };
 
   render() {
     return (
@@ -35,9 +61,16 @@ class LoginInput extends React.Component {
           type="password"
           id="loginPassword"
           name="pw"
-          placeholder="비밀번호"
           onInput={this.handleInput}
+          placeholder="비밀번호"
         />
+        {/* <input
+          type="text"
+          id="loginPassword"
+          name="name"
+          placeholder="이름을 입력하세요"
+          onInput={this.nameChenk}
+        /> */}
         <LoginButton className={this.state.className} />
       </div>
     );

@@ -5,7 +5,7 @@ class Logo extends React.Component {
   render() {
     return (
       <header className="Logo">
-        <Link>Westagram</Link>
+        <Link to="/#">Westagram</Link>
       </header>
     );
   }
