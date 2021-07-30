@@ -9,27 +9,39 @@ class CommentList extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch('/data/commentData.json', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         commentList: data,
+  //       });
+  //     });
+  // }
 
   render() {
     const { commentList } = this.state;
+    const getComment = () => {
+      fetch('/data/commentData.json', {
+        method: 'GET',
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            commentList: data,
+          });
+        });
+    };
+    getComment();
 
     return (
       <div className="comment">
         <ul>
           {commentList.map(comment => {
             return (
-              <div className="reply">
+              <div className="reply" key={comment.id}>
                 <div className="content">
                   <a href="/#" className="id">
                     {comment.userName}
