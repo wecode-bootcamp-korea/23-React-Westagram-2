@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class IdPwInput extends React.Component {
   constructor() {
@@ -11,6 +12,25 @@ class IdPwInput extends React.Component {
       disabled: true,
     };
   }
+  Join = () => {
+    fetch('http://10.58.3.104:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        // name: '박태환',
+        id: this.state.Id,
+        password: this.state.Pw,
+        // phone_number: '01011111111',
+        // age: 29,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log('결과: ', result);
+        !result.token
+          ? alert('입력을 확인해주세요!')
+          : this.props.history.push('/MainHwan');
+      });
+  };
 
   handleIdInput = e => {
     this.setState({
@@ -40,7 +60,7 @@ class IdPwInput extends React.Component {
 
   pressEnter = e => {
     if (e.key === 'Enter') {
-      this.props.goToMain();
+      this.Join();
     }
   };
 
@@ -71,7 +91,7 @@ class IdPwInput extends React.Component {
         />
         <div className="btn">
           <button
-            onClick={this.props.goToMain}
+            onClick={this.Join}
             className={this.state.btnChange}
             disabled={this.state.disabled}
           >
@@ -83,4 +103,4 @@ class IdPwInput extends React.Component {
   }
 }
 
-export default IdPwInput;
+export default withRouter(IdPwInput);
