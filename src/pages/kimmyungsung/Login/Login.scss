@@ -1,21 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-$atag-decoration: none;
-@mixin sort($display, $direction, $align) {
-  display: $display;
-  flex-direction: $direction;
-  align-items: $align;
-}
-@mixin border($border, $radius) {
-  border: $border;
-  border-radius: $radius;
-}
-
-@mixin size($margin, $padding, $width) {
-  margin: $margin;
-  padding: $padding;
-  width: $width;
-}
+@import '../../../styles/varivable.scss';
 
 .LoginSung {
   position: absolute;
