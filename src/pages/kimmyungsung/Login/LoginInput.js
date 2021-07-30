@@ -7,8 +7,7 @@ class LoginInput extends React.Component {
     this.state = {
       id: '',
       pw: '',
-      // name: '',
-      className: 'deActiveLoginButton',
+      // className: 'deActiveLoginButton',
     };
   }
 
@@ -30,24 +29,19 @@ class LoginInput extends React.Component {
   //     });
   // };
 
-  handleInput = e => {
-    const { value, name } = e.target;
-    this.setState({
-      [name]: value,
-    });
-    this.state.id.includes('@') && this.state.pw.length >= 5
-      ? this.setState({ className: 'activeLoginButton' })
-      : this.setState({ className: 'deActiveLoginButton' });
-  };
-
-  // nameChenk = e => {
+  // handleInput = e => {
+  //   const { value, name } = e.target;
   //   this.setState({
-  //     name: e.target.value,
+  //     [name]: value,
   //   });
-  //   console.log(this.state);
+  //   this.state.id.includes('@') && this.state.pw.length >= 5
+  //     ? this.setState({ className: 'activeLoginButton' })
+  //     : this.setState({ className: 'deActiveLoginButton' });
   // };
 
   render() {
+    const { id, pw } = this.state;
+    const buttonActiveConditon = id.includes('@') && pw.length >= 5;
     return (
       <div className="LoginInput">
         <input
@@ -64,14 +58,11 @@ class LoginInput extends React.Component {
           onInput={this.handleInput}
           placeholder="비밀번호"
         />
-        {/* <input
-          type="text"
-          id="loginPassword"
-          name="name"
-          placeholder="이름을 입력하세요"
-          onInput={this.nameChenk}
-        /> */}
-        <LoginButton className={this.state.className} />
+        <LoginButton
+          className={
+            buttonActiveConditon ? 'activeLoginButton' : 'deActiveLoginButton'
+          }
+        />
       </div>
     );
   }
