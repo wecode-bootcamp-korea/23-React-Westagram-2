@@ -103,7 +103,7 @@
             .commentPop {
               color: #bcbcbc;
               font-weight: bold;
-              margin: 2px 0;
+              margin: 5px 0 2px 0;
             }
           }
           .newComment {
@@ -117,12 +117,25 @@
                 .commentWriter {
                   margin-right: 5px;
                 }
+                .xBox {
+                  .fa-times {
+                    margin-left: 5px;
+                    opacity: 0;
+                    cursor: pointer;
+                  }
+                  .fa-times:hover {
+                    opacity: 1;
+                  }
+                }
               }
               .commentHeartBox {
                 display: flex;
                 justify-content: flex-end;
-                .commentHeart {
-                  width: 30%;
+                .fas {
+                  color: red;
+                }
+                .fa-heart {
+                  cursor: pointer;
                 }
               }
             }

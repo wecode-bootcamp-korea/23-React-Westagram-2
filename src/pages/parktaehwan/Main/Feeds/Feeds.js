@@ -7,6 +7,7 @@ class Feeds extends React.Component {
 
     this.state = {
       feeds: [],
+      commentList: [],
     };
   }
 
@@ -21,6 +22,7 @@ class Feeds extends React.Component {
         });
       });
   }
+
   goToLogin = () => {
     this.props.history.push('/LoginHwan');
   };
@@ -33,6 +35,8 @@ class Feeds extends React.Component {
             writerName={el.writerName}
             writeContent={el.writeContent}
             imageSrc={el.imageSrc}
+            cmtName={el.cmtName}
+            cmtContent={el.cmtContent}
             goToLogin={this.props.goToLogin}
           />
         ))}

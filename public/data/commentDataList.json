@@ -1,28 +1,6 @@
 {
   "first": [
     {
-      "id": 1,
-      "cmtName": "mekemeke",
-      "cmtContent": "한 것도 없는데 벌써 9시..."
-    },
-    {
-      "id": 2,
-      "cmtName": "wecode_mento",
-      "cmtContent": "더 공부하세요 더 노력하세요"
-    },
-    {
-      "id": 3,
-      "cmtName": "mekemeke",
-      "cmtContent": "질문있습니다."
-    },
-    {
-      "id": 4,
-      "cmtName": "wecode_mento",
-      "cmtContent": "질문사절"
-    }
-  ],
-  "second": [
-    {
       "userId": 1,
       "cmtName": "mekemeke",
       "cmtContent": "한 것도 없는데 벌써 9시..."
@@ -40,6 +18,28 @@
     {
       "userId": 4,
       "cmtName": "wecode_mento",
+      "cmtContent": "질문사절"
+    }
+  ],
+  "second": [
+    {
+      "userId": 1,
+      "cmtName": "sojinsoo",
+      "cmtContent": "한 것도 없는데 벌써 9시..."
+    },
+    {
+      "userId": 2,
+      "cmtName": "parkjongkyu",
+      "cmtContent": "더 공부하세요 더 노력하세요"
+    },
+    {
+      "userId": 3,
+      "cmtName": "baeksunho",
+      "cmtContent": "질문있습니다."
+    },
+    {
+      "userId": 4,
+      "cmtName": "kimjihun",
       "cmtContent": "질문사절"
     }
   ]

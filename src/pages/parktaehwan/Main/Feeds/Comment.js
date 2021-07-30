@@ -7,7 +7,6 @@ class Comment extends React.Component {
 
     this.state = {
       inputValue: '',
-      commentList: [],
       comments: [],
       disabled: true,
     };
@@ -18,9 +17,9 @@ class Comment extends React.Component {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
+      .then(res => {
         this.setState({
-          commentList: data,
+          comments: res.first,
         });
       });
   }
@@ -33,11 +32,26 @@ class Comment extends React.Component {
   };
 
   handleCommentValue = e => {
-    this.state.comments.push(this.state.inputValue);
+    const commentNew = {
+      id: this.state.comments.length + 1,
+      cmtName: 'mekemeke',
+      cmtContent: this.state.inputValue,
+      like: false,
+    };
+    // this.state.comments.push(this.state.inputValue);
     this.setState({
-      comments: this.state.comments,
+      comments: [...this.state.comments, commentNew],
       inputValue: '',
       disabled: true,
+    });
+  };
+
+  removeComment = id => {
+    const filteredComments = this.state.comments.filter(
+      NewComment => NewComment.id !== id
+    );
+    this.setState({
+      comments: filteredComments,
     });
   };
 
@@ -51,24 +65,30 @@ class Comment extends React.Component {
     }
   };
 
+  likeComment = id => {
+    const newLikedComments = this.state.comments.map(el => {
+      if (el.id === id) {
+        el.like = !el.like;
+      }
+      return el;
+    });
+    this.setState({ comments: newLikedComments });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div className="content">
         <div className="contentComment newComment">
-          {/* <NewComment
-            cmtName="mekemeke"
-            cmtContent="한 것도 없는데 벌써 9시..."
-          />
-          <NewComment
-            cmtName="wecode_mento"
-            cmtContent="더 공부하세요 더 노력하세요"
-          /> */}
-          {this.state.commentList.map(el => (
-            <NewComment cmtName={el.cmtName} cmtContent={el.cmtContent} />
-          ))}
-          {this.state.comments.map(el => (
-            <NewComment cmtName="mekemeke" cmtContent={el} />
+          {this.state.comments.map((el, index) => (
+            <NewComment
+              key={index}
+              cmtName={el.cmtName}
+              cmtContent={el.cmtContent}
+              id={el.id}
+              like={el.like}
+              removeComment={this.removeComment}
+              likeComment={this.likeComment}
+            />
           ))}
         </div>
         <div className="time">

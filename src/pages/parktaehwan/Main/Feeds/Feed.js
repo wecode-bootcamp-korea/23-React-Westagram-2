@@ -60,11 +60,13 @@ class Feed extends React.Component {
               <span className="bold">외 10000명</span>이 좋아합니다
             </div>
           </div>
-          <div className="contentComment">
-            <div className="contentWriter">
-              <a href="">{this.props.writerName}</a> {this.props.writeContent}
+          <div className="content">
+            <div className="contentComment newComment">
+              <div className="contentWriter">
+                <a href="">{this.props.writerName}</a> {this.props.writeContent}
+              </div>
+              <div className="commentPop">댓글 10000개 모두 보기</div>
             </div>
-            <div className="commentPop">댓글 10000개 모두 보기</div>
           </div>
           <Comment />
         </article>
