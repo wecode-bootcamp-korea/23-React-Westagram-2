@@ -1,11 +1,11 @@
 import React from 'react';
-import FooterData from './FooterData.js';
+import footerData from './footerData.js';
 
 class Footer extends React.Component {
   render() {
     return (
       <footer>
-        {FooterData.map(el => {
+        {footerData.map(el => {
           return (
             <li key={el.id}>
               <a href="/#">{el.content}</a>

@@ -1,4 +1,4 @@
-const FooterData = [
+const footerData = [
   { id: 1, content: 'Westargram 정보' },
   { id: 2, content: '지원' },
   { id: 3, content: '홍보 센터' },
@@ -12,4 +12,4 @@ const FooterData = [
   { id: 11, content: '언어' },
 ];
 
-export default FooterData;
+export default footerData;
