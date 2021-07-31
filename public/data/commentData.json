@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "content": "배고파",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "cocacola",
+    "content": "지금 시간 4시 46분",
+    "isLiked": false
+  },
+  {
+    "id": 3,
+    "userName": "jayPark",
+    "content": "댓글내용 쓰기가 변수명 정하기보다 어렵다",
+    "isLiked": false
+  }
+]
