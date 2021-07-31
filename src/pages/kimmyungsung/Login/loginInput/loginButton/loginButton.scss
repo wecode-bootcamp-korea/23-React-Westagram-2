@@ -1,0 +1,20 @@
+.deActiveLoginButton {
+  @include border(none, 5px);
+  @include size(13px 0 0 0, 10px, 260px);
+  background-color: #0095f6;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0.2;
+}
+.activeLoginButton {
+  @include border(none, 5px);
+  @include size(13px 0 0 0, 10px, 260px);
+  background-color: #0095f6;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 1;
+}

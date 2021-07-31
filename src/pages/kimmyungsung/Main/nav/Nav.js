@@ -1,16 +1,14 @@
 import React from 'react';
-import './Nav.scss';
+import Logo from '../../login/logo/Logo';
 
 class Nav extends React.Component {
   render() {
     return (
-      <div className="nav">
-        <nav className="navContainer">
+      <div className="navFix">
+        <nav>
           <div className="homepage">
             <img alt="instagram logo" src="/images/Nav/instagram.png" />
-            <header>
-              <a href="main.html">Westagram</a>
-            </header>
+            <Logo />
           </div>
           <div className="searchBar">
             <div>

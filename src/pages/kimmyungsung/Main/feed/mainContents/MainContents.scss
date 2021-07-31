@@ -1,0 +1,10 @@
+@import './reactionButton/ReactionButton.scss';
+@import './likeNumber/LikeNumber.scss';
+@import './content/Content.scss';
+@import './reply/Reply.scss';
+
+.MainContents {
+  .contentPicture {
+    width: 100%;
+  }
+}

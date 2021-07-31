@@ -1,0 +1,13 @@
+@import './profileTop/ProfileTop.scss';
+@import './mainContents/MainContents.scss';
+
+.newFeed {
+  @include sort(flex, center, none);
+  flex-direction: column;
+  .feeds {
+    @include border(1px solid #c4c4c4, 2px);
+    margin-right: 20px;
+    margin-bottom: 50px;
+    width: 614px;
+  }
+}

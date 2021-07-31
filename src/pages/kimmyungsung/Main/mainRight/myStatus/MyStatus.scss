@@ -1,0 +1,19 @@
+.myStatus {
+  @include sort(flex, none, center);
+  img {
+    @include imgSize(56px, 56px, 0, pointer);
+    border-radius: 35px;
+  }
+  .myInform {
+    @include verticalAlign(flex, column);
+    margin-left: 16px;
+    span {
+      &:first-child {
+        @include font(15px, 700, inherit, pointer);
+      }
+      &:last-child {
+        @include font(14px, 700, #c4c4c4, inherit);
+      }
+    }
+  }
+}

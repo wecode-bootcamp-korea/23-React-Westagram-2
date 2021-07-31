@@ -1,0 +1,12 @@
+.Logo {
+  margin: 25px auto 40px;
+  a {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    color: black;
+    text-decoration: $atag-decoration;
+    &:visited {
+      color: black;
+    }
+  }
+}

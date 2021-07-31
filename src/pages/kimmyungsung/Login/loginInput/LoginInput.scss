@@ -1,0 +1,10 @@
+@import './loginButton/loginButton.scss';
+
+.LoginInput {
+  @include sort(flex, column, center);
+  input {
+    @include border(0.2px solid #ededed, 5px);
+    @include size(5px 0, 15px 10px, 260px);
+    background-color: #fafafa;
+  }
+}

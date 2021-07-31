@@ -1,0 +1,14 @@
+.reply {
+  @include sort(flex, space-between, none);
+  .content {
+    .reId {
+      @include font(14px, inherit, #124172, pointer);
+      margin-left: 8px;
+      text-decoration: none;
+    }
+  }
+  .reHeart {
+    @include imgSize(12px, 12px, 0 16px 0 0, pointer);
+    filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
+  }
+}

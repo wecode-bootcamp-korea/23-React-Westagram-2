@@ -1,0 +1,11 @@
+@import './styles/variable.scss';
+@import './nav/Nav.scss';
+@import './feed/Feeds.scss';
+@import './mainRight/MainRight.scss';
+
+.MainSung {
+  main {
+    @include sort(flex, center, none);
+    margin-top: 74px;
+  }
+}

@@ -1,0 +1,19 @@
+@import './styles/variable.scss';
+@import './logo/logo.scss';
+@import './loginInput/LoginInput.scss';
+
+.LoginSung {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ededed;
+  padding: 15px 50px;
+  @include sort(flex, column, center);
+  .forgetPassword {
+    margin-top: 25%;
+    color: #325883;
+    font-size: 13px;
+    text-decoration: $atag-decoration;
+  }
+}

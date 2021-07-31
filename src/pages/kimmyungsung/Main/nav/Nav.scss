@@ -1,22 +1,21 @@
-.nav {
-  .navContainer {
+.navFix {
+  position: fixed;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid #c4c4c4;
+  nav {
+    @include sort(flex, space-between, center);
     height: 54px;
     width: 975px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 0 auto;
+    background-color: white;
     .homepage {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include sort(flex, space-between, center);
       img {
-        width: 22px;
-        height: 22px;
-        margin-left: 20px;
-        cursor: pointer;
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
       }
-      header {
+      .Logo {
         height: 30px;
         border-left: 1.5px solid black;
         margin-left: 20px;
@@ -32,29 +31,23 @@
     .searchBar {
       position: relative;
       img {
+        @include imgSize(12px, 12px, 9px 0, inherit);
         z-index: 5;
-        width: 12px;
-        height: 12px;
         position: absolute;
         left: 80px;
-        margin: 9px 0;
         filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
       }
       input {
+        @include border(1px solid #dddddd, 2px);
         width: 215px;
-        height: 28px;
         background-color: #fafafa;
-        border: 1px solid #dddddd;
-        border-radius: 2px;
         text-align: center;
+        padding: 6px 0;
       }
     }
     .menu {
       img {
-        width: 22px;
-        height: 22px;
-        margin-left: 20px;
-        cursor: pointer;
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
       }
     }
   }
