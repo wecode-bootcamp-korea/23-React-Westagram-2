@@ -9,7 +9,7 @@ class LoginButton extends React.Component {
   render() {
     return (
       <button
-        type="submit"
+        type="button"
         className={this.props.className}
         onClick={this.goToMain}
       >

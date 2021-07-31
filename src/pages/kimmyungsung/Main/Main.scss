@@ -1,34 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-@mixin sort($display, $justify, $align) {
-  display: $display;
-  justify-content: $justify;
-  align-items: $align;
-}
-@mixin verticalAlign($display, $direction) {
-  display: $display;
-  flex-direction: $direction;
-}
-@mixin imgSize($width, $height, $margin, $cursor) {
-  width: $width;
-  height: $height;
-  margin: $margin;
-  cursor: $cursor;
-}
-@mixin font($size, $weight, $color, $cursor) {
-  font-size: $size;
-  font-weight: $weight;
-  color: $color;
-  cursor: $cursor;
-}
-@mixin border($border, $radius) {
-  border: $border;
-  border-radius: $radius;
-}
-
-a {
-  color: black;
-}
+@import './styles/variable.scss';
 
 .MainSung {
   .navFix {

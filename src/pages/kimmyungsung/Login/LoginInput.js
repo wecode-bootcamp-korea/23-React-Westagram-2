@@ -29,11 +29,12 @@ class LoginInput extends React.Component {
   //     });
   // };
 
-  // handleInput = e => {
-  //   const { value, name } = e.target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
+  handleInput = e => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
   //   this.state.id.includes('@') && this.state.pw.length >= 5
   //     ? this.setState({ className: 'activeLoginButton' })
   //     : this.setState({ className: 'deActiveLoginButton' });
