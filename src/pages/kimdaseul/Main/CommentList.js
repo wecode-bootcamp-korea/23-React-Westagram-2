@@ -19,8 +19,9 @@ class CommentList extends React.Component {
   };
 
   clickInsertValue = () => {
+    const { content, contents } = this.state;
     this.setState({
-      contents: this.state.contents.concat(this.state.content),
+      contents: contents.concat(content),
       content: '',
     });
   };
@@ -32,9 +33,7 @@ class CommentList extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
+    fetch('/data/commentData.json')
       .then(res => res.json()) // server에서 보내준 response를 객체 형태로 변환
       .then(data => {
         // data는 객체형태로 변환한 response임. 그걸 인자로 받고 setState 실행. commentList가 객체 형태로 변환된 response인 data로 state 변경됨.
@@ -45,7 +44,7 @@ class CommentList extends React.Component {
   }
 
   render() {
-    const { commentList, content } = this.state;
+    const { commentList, content, contents } = this.state;
     const { saveValue, enterInsertValue, clickInsertValue } = this;
     return (
       <>
@@ -60,8 +59,10 @@ class CommentList extends React.Component {
                 />
               );
             })}
-            {this.state.contents.map((el, index) => {
-              return <Comment name="cocacola" content={el} key={index + 4} />;
+            {contents.map((content, index) => {
+              return (
+                <Comment name="cocacola" content={content} key={index + 4} />
+              );
             })}
           </ul>
         </div>
@@ -72,7 +73,7 @@ class CommentList extends React.Component {
             onChange={saveValue}
             onKeyPress={enterInsertValue}
             value={content}
-          ></input>
+          />
           <button onClick={clickInsertValue}>게시</button>
         </div>
       </>

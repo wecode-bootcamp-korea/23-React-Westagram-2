@@ -1,5 +1,5 @@
 import React from 'react';
-import { COMMENTICON } from './CommentIconData';
+import { COMMENTICON } from './commentIconData';
 import './Main.scss';
 
 class CommentIcon extends React.Component {
@@ -7,10 +7,10 @@ class CommentIcon extends React.Component {
     return (
       <div className="response-icons">
         <ul>
-          {COMMENTICON.map(el => {
+          {COMMENTICON.map(icon => {
             return (
-              <li key={el.id}>
-                <img src={el.icon} alt={el.alt} />
+              <li key={icon.id}>
+                <img src={icon.icon} alt={icon.alt} />
               </li>
             );
           })}

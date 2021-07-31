@@ -8,20 +8,12 @@ class LoginSeul extends React.Component {
     this.state = {
       id: '',
       pw: '',
-      opacity: false,
-      disabled: true,
     };
   }
   handleInput = e => {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
-    });
-    console.log(value);
-    const isValid = this.state.id.includes('@') && this.state.pw.length >= 5;
-    this.setState({
-      opacity: isValid,
-      disabled: !isValid,
     });
   };
 
@@ -30,11 +22,12 @@ class LoginSeul extends React.Component {
   };
 
   signupLogin = () => {
+    const { id, pw } = this.state;
     fetch('http://10.58.3.99:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.id,
-        password: this.state.pw,
+        email: id,
+        password: pw,
       }),
     })
       .then(response => response.json())
@@ -49,8 +42,9 @@ class LoginSeul extends React.Component {
   };
 
   render() {
-    const { disabled, opacity } = this.state;
-    const { handleInput, signupLogin } = this;
+    const { id, pw } = this.state;
+    const { handleInput } = this;
+    const isValid = id.includes('@') && pw.length >= 5;
     return (
       <div className="login">
         <div className="login-logo">Westagram</div>
@@ -71,10 +65,9 @@ class LoginSeul extends React.Component {
         </div>
         <div className="login-btn-box">
           <button
-            onClick={signupLogin}
-            disabled={disabled ? 'disabled' : ''}
-            style={{ opacity: opacity ? '1' : '0.3' }}
-            className="login-btn"
+            onClick={this.goToMain}
+            disabled={isValid ? '' : 'disabled'}
+            className={`login-btn ${isValid ? 'login-btn-active' : ''}`}
           >
             로그인
           </button>

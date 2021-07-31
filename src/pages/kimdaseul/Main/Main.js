@@ -12,7 +12,7 @@ class MainSeul extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3000/data/FeedData.json', {
+    fetch('/data/FeedData.json', {
       method: 'GET',
     })
       .then(response => response.json())
