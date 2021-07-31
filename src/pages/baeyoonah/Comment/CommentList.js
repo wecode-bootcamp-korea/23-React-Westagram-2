@@ -2,12 +2,12 @@ import React from 'react';
 import Comment from './Comment';
 import './CommentList.scss';
 
-class CommentList extends React.Component {
+class commentList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       commentInput: '',
-      id: '',
+      nickname: '',
       comment: [],
     };
   }
@@ -17,14 +17,13 @@ class CommentList extends React.Component {
       commentInput: e.target.value,
     });
   };
-
+  // commentlist에서 input 값을 보고 map을 돌릴지 commnent에서 props 해온 input 갯수로 할지 결정하기
   inputToComment = () => {
+    const { comment, commentInput } = this.state;
     this.setState({
-      id: 'wecode_bootcamp',
-      comment: this.state.comment.concat(this.state.commentInput),
-      // commentInput: '',
+      nickname: 'wecode_bootcamp',
+      comment: comment.concat(commentInput),
     });
-    console.log(this.state.id);
   };
 
   enterPress = e => {
@@ -35,9 +34,10 @@ class CommentList extends React.Component {
   };
 
   render() {
+    const { nickname, comment } = this.state;
     return (
       <div className="CommentList">
-        <Comment id={this.state.id} comment={this.state.comment} />
+        <Comment nickname={nickname} comment={comment} />
         <div className="newText">
           <input
             id="typingText"
@@ -46,13 +46,11 @@ class CommentList extends React.Component {
             type="text"
             placeholder="댓글 달기...."
           />
-          <button onClick={this.checkInput} id="button">
-            게시
-          </button>
+          <button onClick={this.checkInput}>게시</button>
         </div>
       </div>
     );
   }
 }
 
-export default CommentList;
+export default commentList;

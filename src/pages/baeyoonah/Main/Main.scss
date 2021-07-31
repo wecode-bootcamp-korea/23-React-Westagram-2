@@ -5,45 +5,52 @@ body {
 
 .MainAh {
   .mainContainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
     width: 2000px;
     max-width: 100vw;
     height: 2000px;
-    display: flex;
-    justify-content: center;
-    position: relative;
     background-color: #fafafa;
   }
+
   .feedsContainer {
-    width: 45%;
-    margin-top: 50px;
     position: absolute;
     left: 15%;
+    margin-top: 50px;
+    width: 45%;
     border: 2px solid lightgrey;
     background-color: white;
+
     p {
       margin: 0;
     }
   }
+
   .feedsTop {
     margin: 15px 0;
   }
+
   article {
     width: 100%;
     .profileImage {
-      width: 30px;
-      height: 30px;
       vertical-align: middle;
       margin-left: 15px;
       margin-right: 10px;
+      width: 30px;
+      height: 30px;
     }
+
     img {
       width: 100%;
     }
   }
+
   .feedsIcon {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
+
     ul {
       display: flex;
       margin: 0;
@@ -54,18 +61,20 @@ body {
       margin-right: 10px;
     }
     img {
+      margin-right: 10px;
       width: 30px;
       height: 30px;
-      margin-right: 10px;
     }
   }
+
   .feedsContent {
     padding: 10px;
     border-bottom: 2px solid lightgrey;
+
     img {
+      margin-right: 5px;
       width: 15px;
       height: 15px;
-      margin-right: 5px;
     }
     div {
       margin-bottom: 10px;
@@ -74,13 +83,14 @@ body {
       font-weight: bold;
     }
     .feedsText {
-      font-weight: normal;
       margin-left: 10px;
+      font-weight: normal;
     }
   }
 
   .newText {
     margin: 15px 0px 15px 10px;
+
     input {
       width: 90%;
       border: none;
@@ -94,27 +104,30 @@ body {
   }
 
   .mainRightContainer {
-    width: 20%;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     left: 63%;
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
+    width: 20%;
+
     img {
       width: 40px;
       height: 40px;
     }
+
     .mainRightIdInfo {
-      color: grey;
-      margin: 0;
-      margin-left: 50px;
       position: absolute;
       top: 20px;
       left: 5px;
+      margin: 0;
+      margin-left: 50px;
+      color: grey;
     }
   }
   .mainRightTop {
     margin-bottom: 10px;
+
     img {
       vertical-align: middle;
       margin-right: 10px;
@@ -137,6 +150,7 @@ body {
   .storyContent {
     margin: 15px;
     position: relative;
+
     img {
       vertical-align: middle;
       margin-right: 15px;
@@ -146,22 +160,25 @@ body {
   }
   // 특정 컨테이너 안에 들어가있지 않고 공통으로 쓰는중
   .siteId {
-    font-weight: bold;
     position: absolute;
     top: 2px;
+    font-weight: bold;
   }
+
   .siteIdInfo {
-    color: grey;
-    margin: 0;
-    margin-left: 45px;
     position: absolute;
     top: 20px;
     left: 5px;
+    margin: 0;
+    margin-left: 45px;
+    color: grey;
   }
+
   .storyId {
     color: grey;
     margin: 0;
   }
+
   .storyIdinfo {
     font-weight: bold;
   }
@@ -170,14 +187,15 @@ body {
     margin-top: 15px;
     border: 2px solid lightgrey;
     background-color: white;
+
     .followBtn {
-      float: right;
       position: absolute;
       top: 10px;
       right: 0;
-      background-color: white;
-      border: none;
+      float: right;
       padding: 0;
+      border: none;
+      background-color: white;
       color: blue;
       font-size: 15px;
     }

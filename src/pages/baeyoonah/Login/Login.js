@@ -3,36 +3,28 @@ import { withRouter } from 'react-router-dom';
 import './Login.scss';
 
 class LoginAh extends React.Component {
-  goToMain = () => {
-    this.props.history.push('/MainAh');
-  };
-
   constructor(props) {
     super(props);
     this.state = {
       idInput: '',
       pwInput: '',
-      defaultColor: { backgroundColor: 'skyblue' },
-      disabled: 'disabled',
     };
   }
 
   handleInput = event => {
+    const { name, value } = event.target;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
-    this.state.idInput.includes('@') && this.state.pwInput.length >= 5
-      ? this.setState({
-          defaultColor: { backgroundColor: 'blue' },
-          disabled: '',
-        })
-      : this.setState({
-          defalutColor: { backgroundColor: 'skyblue' },
-          disabled: 'disabled',
-        });
+  };
+
+  goToMain = () => {
+    this.props.history.push('/MainAh');
   };
 
   render() {
+    const { idInput, pwInput } = this.state;
+    const isButtonActive = idInput.includes('@') && pwInput.length >= 5;
     return (
       <div className="Login">
         <div className="container">
@@ -43,7 +35,7 @@ class LoginAh extends React.Component {
                 onChange={this.handleInput}
                 name="idInput"
                 type="text"
-                id="inputId"
+                className="inputId"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
             </div>
@@ -52,14 +44,15 @@ class LoginAh extends React.Component {
                 onChange={this.handleInput}
                 name="pwInput"
                 type="password"
-                id="inputPassword"
+                className="inputPassword"
                 placeholder="비밀번호"
               />
             </div>
             <button
-              disabled={this.state.disabled}
-              style={this.state.defaultColor}
-              className="loginButton"
+              disabled={!isButtonActive}
+              className={`loginButton ${
+                isButtonActive ? 'loginButtonOn' : 'loginButtonOff'
+              }`}
               onClick={this.goToMain}
             >
               로그인

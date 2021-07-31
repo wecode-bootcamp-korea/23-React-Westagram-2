@@ -1,25 +1,16 @@
 import React from 'react';
 import './Comment.scss';
 
-class Comment extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   id: '',
-    //   comment: [''],
-    // };
-  }
-
+class comment extends React.Component {
   render() {
-    return (
-      <div className="CommentList">
-        <li>
-          <span className="newCommentid">{this.props.id}</span>
-          <span className="newComments">{this.props.comment}</span>
-        </li>
-      </div>
-    );
+    const newArray = this.props.comment.map((commentarray, index) => (
+      <li key={index}>
+        <span className="newCommentid">{this.props.nickname}</span>
+        <span className="newComments">{commentarray}</span>
+      </li>
+    ));
+    return <div className="CommentList">{newArray}</div>;
   }
 }
 
-export default Comment;
+export default comment;

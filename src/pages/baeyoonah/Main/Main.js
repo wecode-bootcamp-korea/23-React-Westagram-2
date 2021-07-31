@@ -18,9 +18,7 @@ class MainAh extends React.Component {
                   src="/images/baeyoonah/Main/mark.png"
                   alt=""
                 />
-                <span className="feedsId" id="myId">
-                  wecode-bootcamp
-                </span>
+                <span className="feedsId">wecode-bootcamp</span>
               </div>
               <img src="/images/baeyoonah/Main/liberty.jpg" alt="" />
               <div className="feedsIcon">
