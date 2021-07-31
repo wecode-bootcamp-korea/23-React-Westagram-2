@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from './Logo.js';
-import LoginInput from './LoginInput';
+import Logo from './logo/Logo.js';
+import LoginInput from './loginInput/LoginInput';
 import './Login.scss';
 
 class LoginSung extends React.Component {

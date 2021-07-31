@@ -23,7 +23,7 @@ class StoryList extends React.Component {
     return (
       <>
         {list.map(data => (
-          <div className="friendStory" key={data.id}>
+          <div className="storyList" key={data.id}>
             <img alt="profile" src={data.img} />
             <div className="friendInform">
               <span>{data.userName}</span>

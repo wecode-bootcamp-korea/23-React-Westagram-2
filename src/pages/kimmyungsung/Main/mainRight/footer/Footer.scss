@@ -1,0 +1,13 @@
+footer {
+  width: 328px;
+  margin-top: 16px;
+  li {
+    @include font(14px, inherit, none, inherit);
+    display: inline-block;
+    margin: 5px 10px 0 0;
+    a {
+      text-decoration: none;
+      color: #c4c4c4;
+    }
+  }
+}

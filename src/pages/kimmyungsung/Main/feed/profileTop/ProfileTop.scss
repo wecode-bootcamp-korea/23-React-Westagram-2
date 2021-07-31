@@ -1,0 +1,20 @@
+.profileTop {
+  @include sort(flex, space-between, center);
+  .profileName {
+    @include sort(flex, none, center);
+    padding: 16px;
+    height: 60px;
+    img {
+      @include imgSize(32px, 32px, 0 14px 0 0, pointer);
+      border-radius: 20px;
+    }
+    span {
+      @include font(15px, 700, inherit, inherit);
+    }
+  }
+  .addFunction {
+    img {
+      @include imgSize(15px, auto, 0 12px 0 0, inherit);
+    }
+  }
+}

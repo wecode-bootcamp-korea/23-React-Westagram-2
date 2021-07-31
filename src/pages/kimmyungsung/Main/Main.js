@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from './Nav';
-import Feeds from './Feeds';
-import MainRight from './MainRight';
+import Nav from './nav/Nav';
+import Feeds from './feed/Feeds';
+import MainRight from './mainRight/MainRight';
 import './Main.scss';
 
 class MainSung extends React.Component {

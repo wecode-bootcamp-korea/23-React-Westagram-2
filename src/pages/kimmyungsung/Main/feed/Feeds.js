@@ -1,6 +1,6 @@
 import React from 'react';
-import ProfileTop from './ProfileTop';
-import MainContents from './MainContents';
+import ProfileTop from './profileTop/ProfileTop';
+import MainContents from './mainContents/MainContents';
 
 class Feeds extends React.Component {
   constructor() {

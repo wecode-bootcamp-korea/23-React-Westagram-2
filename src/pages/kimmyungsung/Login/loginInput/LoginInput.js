@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginButton from './LoginButton';
+import LoginButton from './loginButton/LoginButton';
 
 class LoginInput extends React.Component {
   constructor() {

@@ -1,0 +1,54 @@
+.navFix {
+  position: fixed;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid #c4c4c4;
+  nav {
+    @include sort(flex, space-between, center);
+    height: 54px;
+    width: 975px;
+    margin: 0 auto;
+    background-color: white;
+    .homepage {
+      @include sort(flex, space-between, center);
+      img {
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
+      }
+      .Logo {
+        height: 30px;
+        border-left: 1.5px solid black;
+        margin-left: 20px;
+        padding-left: 20px;
+        font-family: 'Lobster', cursive;
+        font-size: 25px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .searchBar {
+      position: relative;
+      img {
+        @include imgSize(12px, 12px, 9px 0, inherit);
+        z-index: 5;
+        position: absolute;
+        left: 80px;
+        filter: opacity(0.5) drop-shadow(0 0 0 #c4c4c4);
+      }
+      input {
+        @include border(1px solid #dddddd, 2px);
+        width: 215px;
+        background-color: #fafafa;
+        text-align: center;
+        padding: 6px 0;
+      }
+    }
+    .menu {
+      img {
+        @include imgSize(22px, 22px, 0 0 0 20px, pointer);
+      }
+    }
+  }
+}

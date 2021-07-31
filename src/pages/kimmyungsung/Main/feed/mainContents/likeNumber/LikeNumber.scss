@@ -1,0 +1,14 @@
+.likeNumber {
+  @include sort(flex, none, center);
+  padding: 0 16px 10px 16px;
+  img {
+    @include imgSize(32px, 32px, 0 14px 0 0, pointer);
+    @include border(0.5px solid #c4c4c4, 20px);
+  }
+  span {
+    font-size: 12px;
+    b {
+      font-weight: 900;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.recommand {
+  @include border(1px solid #c4c4c4, 5px);
+  width: 328px;
+  margin-top: 20px;
+  padding: 10px;
+  .customerTitle {
+    @include sort(flex, space-between, none);
+    margin-bottom: 15px;
+    span {
+      &:first-child {
+        @include font(15px, inherit, #c4c4c4, inherit);
+      }
+      &:last-child {
+        @include font(15px, 500, inherit, pointer);
+      }
+    }
+  }
+  .recommandList {
+    padding: 5px 0;
+    @include sort(flex, space-between, center);
+    .recommandProfile {
+      @include sort(flex, none, center);
+      img {
+        @include imgSize(35px, 35px, 0, pointer);
+        border-radius: 30px;
+      }
+      .friendInform {
+        @include verticalAlign(flex, column);
+        margin-left: 16px;
+        span {
+          &:first-child {
+            @include font(14px, 700, inherit, pointer);
+          }
+          &:last-child {
+            @include font(14px, 400, #c4c4c4, inherit);
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    button {
+      @include font(15px, 500, #1e9af7, pointer);
+      border: none;
+      background-color: white;
+    }
+  }
+}

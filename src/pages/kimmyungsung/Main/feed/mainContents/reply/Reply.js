@@ -1,6 +1,6 @@
 import React from 'react';
-import Comments from './Comments';
-import CommentList from './CommentList';
+import Comments from './comment/Comments';
+import CommentList from './comment/CommentList';
 
 class Reply extends React.Component {
   constructor() {
@@ -39,6 +39,7 @@ class Reply extends React.Component {
 
   render() {
     const { comment } = this.state;
+    const buttonActiveConditon = comment.length > 0;
     return (
       <>
         <CommentList />
@@ -56,7 +57,7 @@ class Reply extends React.Component {
           />
           <button
             type="submit"
-            className={comment > 0 ? 'activeButton' : 'deActiveButton'}
+            className={buttonActiveConditon ? 'activeButton' : 'deActiveButton'}
             onClick={this.uplaodComments}
           >
             게시

@@ -1,8 +1,8 @@
 import React from 'react';
-import MyStatus from './MyStatus';
-import Story from './Story';
-import Recommand from './Recommand';
-import Footer from './Footer';
+import MyStatus from './myStatus/MyStatus';
+import Story from './story/Story';
+import Recommand from './recommand/Recommand';
+import Footer from './footer/Footer';
 
 class MainRight extends React.Component {
   render() {

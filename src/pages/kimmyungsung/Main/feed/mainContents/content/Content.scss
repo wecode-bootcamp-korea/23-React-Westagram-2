@@ -1,0 +1,16 @@
+.content {
+  margin-top: 3px;
+  padding: 0 0 0 16px;
+  align-items: center;
+  .id {
+    @include font(14px, 700, inherit, pointer);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .reText {
+    font-size: 12px;
+    margin-left: 8px;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../Login/Logo';
+import Logo from '../../login/logo/Logo';
 
 class Nav extends React.Component {
   render() {
