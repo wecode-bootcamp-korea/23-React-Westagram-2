@@ -8,7 +8,7 @@ class Reply extends React.Component {
     this.state = {
       commentBox: [],
       comment: '',
-      className: 'deActiveButton',
+      // className: 'deActiveButton',
     };
   }
 
@@ -16,18 +16,20 @@ class Reply extends React.Component {
     this.setState({
       comment: e.target.value,
     });
-    e.target.value.length > 0
-      ? this.setState({
-          className: 'activeButton',
-        })
-      : this.setState({
-          className: 'deActiveButton',
-        });
+    // e.target.value.length > 0
+    //   ? this.setState({
+    //       className: 'activeButton',
+    //     })
+    //   : this.setState({
+    //       className: 'deActiveButton',
+    //     });
   };
   uplaodComments = () => {
     const { commentBox, comment } = this.state;
-    commentBox.push({ commentValue: comment });
-    this.setState({ comment: '', className: 'deActiveButton' });
+    // commentBox.push({ commentValue: comment });
+    // this.setState({ comment: '', className: 'deActiveButton' });
+    const newCommentBox = commentBox.concat({ commentValue: comment });
+    this.setState({ comment: '', commentBox: newCommentBox });
   };
   eKeyPress = e => {
     if (e.key === 'Enter') {
@@ -36,13 +38,14 @@ class Reply extends React.Component {
   };
 
   render() {
+    const { comment } = this.state;
     return (
       <>
         <CommentList />
         {this.state.commentBox.map(comment => {
           return <Comments commentContent={comment.commentValue} />;
         })}
-        <div className="writeReply">
+        <div className="writeReply" key={this.state.id}>
           <input
             type="text"
             className="replyText"
@@ -53,7 +56,7 @@ class Reply extends React.Component {
           />
           <button
             type="submit"
-            className={this.state.className}
+            className={comment > 0 ? 'activeButton' : 'deActiveButton'}
             onClick={this.uplaodComments}
           >
             게시
