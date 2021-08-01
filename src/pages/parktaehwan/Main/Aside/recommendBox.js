@@ -11,7 +11,7 @@ class RecommendBox extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/profileData.json', {
+    fetch('/data/profileData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -28,8 +28,9 @@ class RecommendBox extends React.Component {
           <div className="asideSectionTitleName">회원님을 위한 추천</div>
           <div>모두보기</div>
         </div>
-        {this.state.list.map(el => (
+        {this.state.list.map((el, index) => (
           <RcmdProfileBox
+            key={index}
             name={el.name}
             time={el.time}
             imageSrc={el.imageSrc}

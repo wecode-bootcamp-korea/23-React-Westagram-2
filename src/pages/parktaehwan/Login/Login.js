@@ -17,7 +17,7 @@ class LoginHwan extends React.Component {
             <header className="logo">westagram</header>
             <section className="loginInputs">
               <div className="idPw">
-                <IdPwInput goToMain={this.goToMain} />
+                <IdPwInput goMain={this.goToMain} />
               </div>
             </section>
             <footer>

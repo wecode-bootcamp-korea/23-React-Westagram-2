@@ -14,7 +14,7 @@ class Aside extends React.Component {
                   <img
                     className="profileImg"
                     src="https://blog.kakaocdn.net/dn/nxzKU/btqJ8e1EAVW/auuUq9ON9dRPkDkL9iGazK/img.jpg"
-                    alt=""
+                    alt="profile"
                   />
                 </div>
                 <div className="myProfileNameBox">

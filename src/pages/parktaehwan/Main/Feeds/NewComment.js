@@ -1,17 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+
 class NewComment extends React.Component {
   render() {
-    console.log(this.props);
-    const { id, like, removeComment, likeComment } = this.props;
+    const { id, like, removeComment, likeComment, cmtName, cmtContent } =
+      this.props;
 
     return (
       <div className="comment">
         <div className="commentLeft">
-          <a href="#" className="commentWriter">
-            {this.props.cmtName}
+          <a href="" className="commentWriter">
+            {cmtName}
           </a>{' '}
-          <span>{this.props.cmtContent}</span>
+          <span>{cmtContent}</span>
           <span className="xBox">
             <i className="fas fa-times" onClick={() => removeComment(id)} />
           </span>

@@ -2,17 +2,18 @@ import React from 'react';
 
 class RcmdProfileBox extends React.Component {
   render() {
+    const { imageSrc, name, time } = this.props;
     return (
       <div className="asideSectionProfile follow">
         <div className="asideSectionProfileLeft">
           <div className="profileImgBox">
-            <img className="profileImg" src={this.props.imageSrc} alt="" />
+            <img className="profileImg" src={imageSrc} alt="" />
           </div>
           <div className="asideSectionNameBox">
             <a href="">
-              <div className="asideSectionName">{this.props.name}</div>
+              <div className="asideSectionName">{name}</div>
             </a>
-            <div className="asideSectionDes">{this.props.time}</div>
+            <div className="asideSectionDes">{time}</div>
           </div>
         </div>
         <div className="followBtnBox">

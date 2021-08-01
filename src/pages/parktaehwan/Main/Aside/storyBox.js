@@ -11,7 +11,7 @@ class StoryBox extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/profileData.json', {
+    fetch('/data/profileData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -29,8 +29,9 @@ class StoryBox extends React.Component {
           <div className="asideSectionTitleName">스토리</div>
           <div>모두보기</div>
         </div>
-        {this.state.list.map(el => (
+        {this.state.list.map((el, index) => (
           <StoryProfileBox
+            key={index}
             name={el.name}
             time={el.time}
             imageSrc={el.imageSrc}

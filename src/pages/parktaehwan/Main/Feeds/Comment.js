@@ -8,12 +8,11 @@ class Comment extends React.Component {
     this.state = {
       inputValue: '',
       comments: [],
-      disabled: true,
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
+    fetch('/data/commentData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -27,7 +26,6 @@ class Comment extends React.Component {
   handleInputValue = e => {
     this.setState({
       inputValue: e.target.value,
-      disabled: false,
     });
   };
 
@@ -42,13 +40,12 @@ class Comment extends React.Component {
     this.setState({
       comments: [...this.state.comments, commentNew],
       inputValue: '',
-      disabled: true,
     });
   };
 
   removeComment = id => {
     const filteredComments = this.state.comments.filter(
-      NewComment => NewComment.id !== id
+      newComment => newComment.id !== id
     );
     this.setState({
       comments: filteredComments,
@@ -67,27 +64,32 @@ class Comment extends React.Component {
 
   likeComment = id => {
     const newLikedComments = this.state.comments.map(el => {
-      if (el.id === id) {
-        el.like = !el.like;
-      }
-      return el;
+      return el.id === id ? { ...el, like: !el.like } : el;
     });
     this.setState({ comments: newLikedComments });
   };
 
   render() {
+    const { inputValue, comments } = this.state;
+    const {
+      removeComment,
+      likeComment,
+      handleInputValue,
+      pressEnter,
+      clickUpload,
+    } = this;
     return (
       <div className="content">
         <div className="contentComment newComment">
-          {this.state.comments.map((el, index) => (
+          {comments.map((el, index) => (
             <NewComment
               key={index}
               cmtName={el.cmtName}
               cmtContent={el.cmtContent}
               id={el.id}
               like={el.like}
-              removeComment={this.removeComment}
-              likeComment={this.likeComment}
+              removeComment={removeComment}
+              likeComment={likeComment}
             />
           ))}
         </div>
@@ -99,19 +101,17 @@ class Comment extends React.Component {
             <input
               className="commentInput"
               type="text"
-              value={this.state.inputValue}
-              onChange={e => {
-                this.handleInputValue(e);
-              }}
+              value={inputValue}
+              onChange={handleInputValue}
               placeholder="댓글 달기..."
-              onKeyPress={this.pressEnter}
+              onKeyPress={pressEnter}
             />
           </div>
           <div>
             <button
               className="commentBtn"
-              onClick={this.clickUpload}
-              disabled={this.state.disabled}
+              onClick={clickUpload}
+              disabled={!inputValue}
             >
               게시
             </button>

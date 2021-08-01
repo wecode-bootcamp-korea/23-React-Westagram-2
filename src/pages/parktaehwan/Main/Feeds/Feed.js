@@ -3,21 +3,22 @@ import Comment from './Comment';
 
 class Feed extends React.Component {
   render() {
+    const { writerName, goToLogin, imageSrc, writeContent } = this.props;
     return (
-      <section className="section1">
+      <section className="Feed">
         <header className="writer">
           <div className="profileLeft">
             <div className="profileImgBox">
               <img
                 className="profileImg"
                 src="https://blog.kakaocdn.net/dn/nxzKU/btqJ8e1EAVW/auuUq9ON9dRPkDkL9iGazK/img.jpg"
-                alt=""
+                alt="profile"
               />
             </div>
             <a href="">
               <div className="profileNameBox">
-                {this.props.writerName}
-                <button onClick={this.props.goToLogin}>로그인으로</button>
+                {writerName}
+                <button onClick={goToLogin}>로그인으로</button>
               </div>
             </a>
           </div>
@@ -31,11 +32,7 @@ class Feed extends React.Component {
         </header>
         <article className="content">
           <div className="contentImgBox">
-            <img
-              className="contentImg"
-              src={this.props.imageSrc}
-              alt="person"
-            />
+            <img className="contentImg" src={imageSrc} alt="person" />
           </div>
           <div className="likeBtnBar">
             <div className="likeLeft">
@@ -52,7 +49,7 @@ class Feed extends React.Component {
               <img
                 className="howManyLikeImg"
                 src="https://blog.kakaocdn.net/dn/nxzKU/btqJ8e1EAVW/auuUq9ON9dRPkDkL9iGazK/img.jpg"
-                alt=""
+                alt="profile"
               />
             </div>
             <div className="howManyLikeText">
@@ -63,7 +60,7 @@ class Feed extends React.Component {
           <div className="content">
             <div className="contentComment newComment">
               <div className="contentWriter">
-                <a href="">{this.props.writerName}</a> {this.props.writeContent}
+                <a href="">{writerName}</a> {writeContent}
               </div>
               <div className="commentPop">댓글 10000개 모두 보기</div>
             </div>

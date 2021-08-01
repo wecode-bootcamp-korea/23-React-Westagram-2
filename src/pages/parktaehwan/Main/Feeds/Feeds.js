@@ -30,8 +30,9 @@ class Feeds extends React.Component {
   render() {
     return (
       <div className="feeds">
-        {this.state.feeds.map(el => (
+        {this.state.feeds.map((el, index) => (
           <Feed
+            key={index}
             writerName={el.writerName}
             writeContent={el.writeContent}
             imageSrc={el.imageSrc}

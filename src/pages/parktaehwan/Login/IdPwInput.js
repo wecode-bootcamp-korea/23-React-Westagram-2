@@ -6,66 +6,47 @@ class IdPwInput extends React.Component {
     super();
 
     this.state = {
-      Id: '',
-      Pw: '',
-      btnChange: 'loginBtn',
-      disabled: true,
+      loginId: '',
+      loginPw: '',
     };
   }
-  Join = () => {
+
+  join = () => {
+    const { loginId, loginPw } = this.state;
     fetch('http://10.58.3.104:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         // name: '박태환',
-        id: this.state.Id,
-        password: this.state.Pw,
+        id: loginId,
+        password: loginPw,
         // phone_number: '01011111111',
         // age: 29,
       }),
     })
       .then(response => response.json())
       .then(result => {
-        console.log('결과: ', result);
         !result.token
           ? alert('입력을 확인해주세요!')
           : this.props.history.push('/MainHwan');
       });
   };
 
-  handleIdInput = e => {
+  handleIdPwInput = e => {
     this.setState({
-      Id: e.target.value,
+      [e.target.name]: e.target.value,
     });
-  };
-
-  handlePwInput = e => {
-    this.setState({
-      Pw: e.target.value,
-    });
-  };
-
-  loginKeyup = () => {
-    if (this.state.Id.includes('@') && this.state.Pw.length >= 5) {
-      this.setState({
-        btnChange: 'loginBtnOn',
-        disabled: false,
-      });
-    } else {
-      this.setState({
-        btnChange: 'loginBtn',
-        disabled: true,
-      });
-    }
   };
 
   pressEnter = e => {
     if (e.key === 'Enter') {
-      this.Join();
+      this.join();
     }
   };
 
   render() {
-    console.log(this.state);
+    const { loginId, loginPw } = this.state;
+    const { handleIdPwInput, pressEnter, join } = this;
+    const isButtonActive = loginId.includes('@') && loginPw.length >= 5;
     return (
       <div onKeyUp={this.loginKeyup}>
         <input
@@ -73,27 +54,25 @@ class IdPwInput extends React.Component {
           className="inputId"
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          value={this.state.Id}
-          onChange={e => {
-            this.handleIdInput(e);
-          }}
+          value={loginId}
+          name="loginId"
+          onChange={handleIdPwInput}
         />
         <input
           id="inputPw"
           className="inputPw"
           type="password"
           placeholder="비밀번호"
-          value={this.state.Pw}
-          onChange={e => {
-            this.handlePwInput(e);
-          }}
-          onKeyPress={this.pressEnter}
+          value={loginPw}
+          name="loginPw"
+          onChange={handleIdPwInput}
+          onKeyPress={pressEnter}
         />
         <div className="btn">
           <button
-            onClick={this.Join}
-            className={this.state.btnChange}
-            disabled={this.state.disabled}
+            onClick={join}
+            className={isButtonActive ? 'loginBtnOn' : 'loginBtn'}
+            disabled={!isButtonActive}
           >
             로그인
           </button>
