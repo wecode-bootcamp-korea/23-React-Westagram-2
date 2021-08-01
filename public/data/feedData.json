@@ -1,0 +1,14 @@
+[
+  {
+    "userId": 1,
+    "writerName": "spring",
+    "writeContent": "계절은 봄",
+    "imageSrc": "/images/baeyoonah/example.jpg"
+  },
+  {
+    "userId": 2,
+    "writerName": "summeer",
+    "writeContent": "계절은 여름",
+    "imageSrc": "/images/baeyoonah/sample1.jpg"
+  }
+]

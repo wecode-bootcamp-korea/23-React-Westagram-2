@@ -1,0 +1,19 @@
+@mixin idpwContainer {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+@mixin loginButton {
+  width: 250px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 70px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
