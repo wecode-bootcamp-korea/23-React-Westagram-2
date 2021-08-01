@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import './variable.scss';
+
+.loginBody {
+  @include flex;
+  width: 100vw;
+  height: 100vh;
+
+  .Loginmain {
+    @include flex;
+    flex-direction: column;
+    width: 350px;
+    border: 1px solid #efefef;
+
+    .mainWrap {
+      @include flex(space-between, center);
+      flex-direction: column;
+      height: 100%;
+      margin: 0 40px;
+
+      .logo {
+        display: flex;
+        margin-top: 30px;
+        font-size: 50px;
+        font-family: 'Lobster', cursive;
+      }
+
+      .loginInputs {
+        margin-top: 30px;
+        margin-bottom: 90px;
+
+        input {
+          width: 100%;
+          padding: 10px 10px;
+          margin-top: 7px;
+          background-color: #fafafa;
+          border: 1px solid #efefef;
+          border-radius: 3px;
+          font-size: 10px;
+          font-weight: bold;
+        }
+
+        .btn {
+          width: 100%;
+          padding-top: 8px;
+          margin-top: 8px;
+
+          .loginBtn {
+            width: 100%;
+            padding: 7px 0;
+            background-color: #c4e1fb;
+            border: 1;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            opacity: 0.5;
+          }
+
+          .loginBtnOn {
+            width: 100%;
+            padding: 7px 0;
+            background-color: #c4e1fb;
+            border: 1;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            opacity: 1;
+          }
+        }
+      }
+
+      .forgotPw {
+        margin-bottom: 20px;
+
+        .forgotPwLink {
+          color: #003569;
+          font-weight: bold;
+          text-decoration-line: none;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

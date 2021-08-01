@@ -1,0 +1,308 @@
+@import 'https://use.fontawesome.com/releases/v5.15.3/css/all.css';
+@import './variable.scss';
+
+.mainBody {
+  @include flex;
+  flex-direction: column;
+  background-color: #fafafa;
+
+  .mainPage {
+    @include flexDirection(row);
+    width: 935px;
+    margin-top: 90px;
+
+    .feeds {
+      height: 100vh;
+      margin-right: 28px;
+
+      .Feed {
+        @include flexDirection(column);
+        background-color: white;
+        border: 1px solid #dbdbdb;
+        margin-bottom: 30px;
+
+        .writer {
+          @include flex(space-between, center);
+          flex-direction: row;
+          padding: 14px 0;
+
+          .profileLeft {
+            @include flexDirection(row);
+            padding: 0 15px;
+
+            .profileNameBox {
+              color: #262626;
+              line-height: 1.7;
+            }
+          }
+          .writerDotBox {
+            margin-right: 15px;
+
+            .writerDot {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+        .content {
+          @include flexDirection(column);
+          width: 614px;
+
+          .contentImg {
+            width: 614px;
+            height: 614px;
+          }
+
+          .likeBtnBar {
+            @include flex(space-between, center);
+            flex-direction: row;
+            margin: 8px 0;
+
+            .likeLeft {
+              margin-left: 5px;
+
+              .like {
+                margin-left: 10px;
+                color: gray;
+                font-size: 24px;
+              }
+            }
+
+            .likeRight {
+              margin-right: 15px;
+
+              .like {
+                margin-left: 10px;
+                color: gray;
+                font-size: 24px;
+              }
+            }
+          }
+
+          .howManyLike {
+            @include flexDirection(row);
+            padding: 0 15px;
+            margin: 2px 0;
+
+            .howManyLikeBox {
+              width: 20px;
+              height: 20px;
+              border-radius: 70%;
+              margin-right: 5px;
+              overflow: hidden;
+
+              .howManyLikeImg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+
+              .howManyLikeText {
+                font-size: 13px;
+
+                .bold {
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          .contentComment {
+            padding: 0 15px;
+            font-size: 14px;
+            overflow: hidden;
+
+            .commentPop {
+              color: #bcbcbc;
+              font-weight: bold;
+              margin: 5px 0 2px 0;
+            }
+          }
+          .newComment {
+            .comment {
+              @include flexDirection(row);
+              justify-content: space-between;
+              margin: 3px 0;
+
+              .commentLeft {
+                display: flex;
+                word-break: break-all;
+
+                .commentWriter {
+                  margin-right: 5px;
+                }
+                .xBox {
+                  .fa-times {
+                    margin-left: 5px;
+                    opacity: 0;
+                    cursor: pointer;
+                  }
+
+                  .fa-times:hover {
+                    opacity: 1;
+                  }
+                }
+              }
+              .commentHeartBox {
+                display: flex;
+                justify-content: flex-end;
+
+                .fas {
+                  color: red;
+                }
+
+                .fa-heart {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          .time {
+            padding: 0 15px;
+            margin: 5px 0 11px 0;
+
+            .writeTime {
+              color: #bcbcbc;
+              font-size: 10px;
+            }
+          }
+        }
+        .writeComment {
+          @include flex(space-between, center);
+          flex-direction: row;
+          padding: 15px;
+          border-top: 1px solid #dbdbdb;
+
+          .commentInputBox {
+            display: flex;
+            align-items: center;
+            width: 90%;
+
+            .commentInput {
+              width: 100%;
+              border: 1px solid transparent;
+              outline: 0;
+            }
+
+            .commentBtn {
+              border: 0;
+              color: #b3dffc;
+              background-color: white;
+            }
+          }
+        }
+      }
+    }
+    aside {
+      width: 293px;
+      position: relative;
+
+      .asideBox {
+        position: fixed;
+        max-width: 291px;
+
+        .myProfile {
+          @include flex(space-between, center);
+          flex-direction: row;
+          margin-bottom: 15px;
+
+          .myProfileLeft {
+            @include flexDirection(row);
+
+            .myProfileImgBox {
+              width: 46px;
+              height: 46px;
+              border-radius: 70%;
+              overflow: hidden;
+            }
+
+            .myProfileNameBox {
+              @include flexDirection(column);
+              justify-content: center;
+              margin-left: 15px;
+              font-size: 15px;
+              font-weight: bold;
+
+              .myProfileSub {
+                color: #bcbcbc;
+              }
+            }
+          }
+        }
+        .asideSection {
+          @include flexDirection(column);
+          padding: 13px;
+          border: 1px solid #dbdbdb;
+          background-color: white;
+          font-weight: bold;
+          margin-bottom: 15px;
+
+          .asideSectionTitle {
+            @include flexDirection(row);
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+
+            .asideSectionTitleName {
+              color: #bcbcbc;
+            }
+          }
+          .asideSectionProfile {
+            @include flexDirection(row);
+            align-items: center;
+            padding-top: 5px;
+
+            .followBtn {
+              border: 0;
+              color: #0095f6;
+              background-color: white;
+            }
+
+            .asideSectionProfileLeft {
+              @include flexDirection(row);
+              align-items: center;
+            }
+
+            .asideSectionNameBox {
+              @include flexDirection(column);
+              font-size: 14px;
+
+              .asideSectionDes {
+                color: #bcbcbc;
+              }
+            }
+          }
+          .follow {
+            justify-content: space-between;
+          }
+        }
+
+        .intro {
+          color: #dbdbdb;
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+  }
+
+  .profileImgBox {
+    width: 32px;
+    height: 32px;
+    border-radius: 70%;
+    margin-right: 15px;
+    overflow: hidden;
+
+    .profileImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
