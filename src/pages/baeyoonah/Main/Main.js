@@ -41,19 +41,7 @@ class MainAh extends React.Component {
                   <span className="feedsId">ainworld</span>
                   <span className="feedsText">님 외 4명이 좋아합니다.</span>
                 </div>
-                <div>
-                  <p className="feedsId">
-                    canon_mj
-                    <span className="feedsText">
-                      위워크에서 진행한 베이킹 클래스
-                    </span>
-                  </p>
-                  <p className="feedsId">
-                    neceosecius
-                    <span className="feedsText">거봐 좋았잖아~~~</span>
-                  </p>
-                  <CommentList />
-                </div>
+                <CommentList />
               </div>
             </article>
           </div>

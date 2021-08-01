@@ -1,16 +1,23 @@
 import React from 'react';
 import './Comment.scss';
 
-class comment extends React.Component {
+class NewComment extends React.Component {
   render() {
-    const newArray = this.props.comment.map((commentarray, index) => (
-      <li key={index}>
-        <span className="newCommentid">{this.props.nickname}</span>
-        <span className="newComments">{commentarray}</span>
-      </li>
-    ));
-    return <div className="CommentList">{newArray}</div>;
+    // const newArray = this.props.newComment.map((commentarray, index) => (
+    //   <li key={index}>
+    //     <span className="newCommentid">{this.props.nickname}</span>
+    //     <span className="newComments">{commentarray}</span>
+    //   </li>
+    // ));
+    return (
+      <div className="comment">
+        <div className="newComment">
+          <span className="newCommentid">{this.props.nickname}</span>
+          <span className="newComments">{this.props.comment}</span>
+        </div>
+      </div>
+    );
   }
 }
 
-export default comment;
+export default NewComment;

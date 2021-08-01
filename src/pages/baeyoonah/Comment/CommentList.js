@@ -2,14 +2,28 @@ import React from 'react';
 import Comment from './Comment';
 import './CommentList.scss';
 
-class commentList extends React.Component {
+class CommentList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       commentInput: '',
+      newComment: [],
       nickname: '',
-      comment: [],
+      commentList: [],
+      commentValue: '',
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
   }
 
   checkInput = e => {
@@ -17,12 +31,12 @@ class commentList extends React.Component {
       commentInput: e.target.value,
     });
   };
-  // commentlist에서 input 값을 보고 map을 돌릴지 commnent에서 props 해온 input 갯수로 할지 결정하기
+
   inputToComment = () => {
-    const { comment, commentInput } = this.state;
+    const { newComment, commentInput } = this.state;
     this.setState({
       nickname: 'wecode_bootcamp',
-      comment: comment.concat(commentInput),
+      newComment: newComment.concat(commentInput),
     });
   };
 
@@ -34,13 +48,23 @@ class commentList extends React.Component {
   };
 
   render() {
-    const { nickname, comment } = this.state;
+    const { commentValue, commentList } = this.state;
     return (
-      <div className="CommentList">
-        <Comment nickname={nickname} comment={comment} />
+      <div className="commentList">
+        {commentList.map(comment => {
+          return (
+            <Comment
+              key={comment.id}
+              nickname={comment.userName}
+              comment={comment.content}
+            />
+          );
+        })}
+
         <div className="newText">
           <input
             id="typingText"
+            value={commentValue}
             onChange={this.checkInput}
             onKeyPress={this.enterPress}
             type="text"
@@ -53,4 +77,4 @@ class commentList extends React.Component {
   }
 }
 
-export default commentList;
+export default CommentList;

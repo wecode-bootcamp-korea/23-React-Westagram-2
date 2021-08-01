@@ -11,6 +11,27 @@ class LoginAh extends React.Component {
     };
   }
 
+  loginTest = () => {
+    fetch('users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.idInput,
+        password: this.state.pwInput,
+      }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+          this.props.history.push('/MainAh');
+        } else {
+          alert('아이디/비밀번호가 틀렸습니다!');
+        }
+      });
+  };
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({
@@ -53,7 +74,8 @@ class LoginAh extends React.Component {
               className={`loginButton ${
                 isButtonActive ? 'loginButtonOn' : 'loginButtonOff'
               }`}
-              onClick={this.goToMain}
+              // onClick={this.goToMain}
+              onClick={this.loginTest}
             >
               로그인
             </button>
